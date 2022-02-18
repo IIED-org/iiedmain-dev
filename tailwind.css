@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Lato;
+    src: url(/dist/fonts/Lato/Lato-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Merriweather;
+    src: url(/dist/fonts/Merriweather/Merriweather-Regular.ttf)
+      format("truetype");
+  }
+
+  .container {
+    @apply mx-auto;
+  }
+
+  h1 {
+    @apply text-4xl font-headline text-gray-900;
+  }
+  h2 {
+    @apply text-3xl font-headline text-gray-900;
+  }
+  h3 {
+    @apply text-2xl font-headline text-gray-900;
+  }
+  h4 {
+    @apply text-xl font-headline text-gray-900;
+  }
+  h5 {
+    @apply text-lg font-headline text-gray-900;
+  }
+
+  .btn {
+    @apply px-3 py-2 transition rounded-full shadow-sm hover:shadow-none;
+  }
+  .btn-icon {
+    @apply flex items-center;
+  }
+  .btn-orange {
+    @apply bg-iiedorange-500 hover:bg-iiedorange-600;
+  }
+
+  a {
+    @apply transition duration-300 ease-in-out text-link-text hover:underline underline-offset-2 hover:text-link-hover visited:text-link-visited;
+  }
+
+  .rich-text p {
+    @apply mt-5 mb-5;
+  }
+
+  /*-- rotate 4 colour borders, could be done with plugin. Where a is the parent this could change depending on card link implementation--*/
+  .grid a:nth-child(8n + 1) .color-rotate {
+    @apply border-iiedpink-500;
+  }
+  .grid a:nth-child(8n + 2) .color-rotate {
+    @apply border-iiedorange-500;
+  }
+  .grid a:nth-child(8n + 3) .color-rotate {
+    @apply border-iiedblue-500;
+  }
+  .grid a:nth-child(8n + 4) .color-rotate {
+    @apply border-iiedgreen-500;
+  }
+  .grid a:nth-child(8n + 5) .color-rotate {
+    @apply border-iiedgreen-500;
+  }
+  .grid a:nth-child(8n + 6) .color-rotate {
+    @apply border-iiedblue-500;
+  }
+  .grid a:nth-child(8n + 7) .color-rotate {
+    @apply border-iiedorange-500;
+  }
+  .grid a:nth-child(8n + 8) .color-rotate {
+    @apply border-iiedpink-500;
+  }
+}
