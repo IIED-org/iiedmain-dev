@@ -77,4 +77,15 @@
   .grid a:nth-child(8n + 8) .color-rotate {
     @apply border-iiedpink-500;
   }
+
+  .iied-gradient {
+    background: rgb(0, 179, 223);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 179, 223, 1) 0%,
+      rgba(252, 179, 22, 1) 33.3%,
+      rgba(206, 83, 158, 1) 66.6%,
+      rgba(170, 192, 44, 1) 100%
+    );
+  }
 }
