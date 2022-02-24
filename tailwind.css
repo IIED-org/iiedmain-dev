@@ -52,6 +52,10 @@
     @apply mt-5 mb-5;
   }
 
+  hr {
+    @apply my-6;
+  }
+
   /*-- rotate 4 colour borders, could be done with plugin. Where a is the parent this could change depending on card link implementation--*/
   .grid a:nth-child(8n + 1) .color-rotate {
     @apply border-iiedpink-500;
