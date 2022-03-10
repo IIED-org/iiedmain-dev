@@ -1578,6 +1578,15 @@ select {
 .bottom-3 {
   bottom: 0.75rem;
 }
+.top-1\/2 {
+  top: 50%;
+}
+.left-1\/2 {
+  left: 50%;
+}
+.-top-px {
+  top: -1px;
+}
 .z-30 {
   z-index: 30;
 }
@@ -1607,6 +1616,15 @@ select {
 }
 .col-span-4 {
   grid-column: span 4 / span 4;
+}
+.col-span-6 {
+  grid-column: span 6 / span 6;
+}
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+.col-start-2 {
+  grid-column-start: 2;
 }
 .m-12 {
   margin: 3rem;
@@ -1722,6 +1740,18 @@ select {
 }
 .mt-16 {
   margin-top: 4rem;
+}
+.mb-24 {
+  margin-bottom: 6rem;
+}
+.mr-3 {
+  margin-right: 0.75rem;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
 }
 .block {
   display: block;
@@ -1893,6 +1923,14 @@ select {
 .origin-left {
   transform-origin: left;
 }
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .scale-100 {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
@@ -1992,6 +2030,9 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-visible {
+  overflow: visible;
 }
 .truncate {
   overflow: hidden;
@@ -2274,6 +2315,12 @@ select {
 .pt-1 {
   padding-top: 0.25rem;
 }
+.pt-8 {
+  padding-top: 2rem;
+}
+.pb-24 {
+  padding-bottom: 6rem;
+}
 .text-center {
   text-align: center;
 }
@@ -2380,6 +2427,9 @@ select {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+.text-opacity-50 {
+  --tw-text-opacity: 0.5;
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2489,6 +2539,11 @@ select {
   background-color: rgb(242 169 12 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .hover\:text-gray-800:hover {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -2516,12 +2571,28 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.hover\:shadow-none:hover {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
 .active\:bg-gray-100:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:border-iiedblue-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 179 223 / var(--tw-border-opacity));
+}
+
+.group:hover .group-hover\:bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
@@ -2540,6 +2611,14 @@ select {
 }
 
 @media (min-width: 640px) {
+
+  .sm\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .sm\:col-start-2 {
+    grid-column-start: 2;
+  }
 
   .sm\:mx-0 {
     margin-left: 0px;
@@ -2589,6 +2668,10 @@ select {
 
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 
   .sm\:flex-row {
@@ -3226,6 +3309,14 @@ select {
     grid-column: span 4 / span 4;
   }
 
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .lg\:col-start-4 {
+    grid-column-start: 4;
+  }
+
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -3297,8 +3388,16 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:gap-8 {
+    gap: 2rem;
   }
 
   .lg\:rounded-t-none {
@@ -3405,6 +3504,24 @@ select {
     --tw-border-opacity: 1;
     border-color: rgb(206 83 158 / var(--tw-border-opacity));
   }
+  .xl\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  .xl\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+  .xl\:col-start-4 {
+    grid-column-start: 4;
+  }
+  .xl\:col-start-3 {
+    grid-column-start: 3;
+  }
+  .xl\:col-start-2 {
+    grid-column-start: 2;
+  }
   .xl\:row-auto {
     grid-row: auto;
   }
@@ -3439,11 +3556,23 @@ select {
   .xl\:grid-cols-\[1fr_48rem_1fr\] {
     grid-template-columns: 1fr 48rem 1fr;
   }
+  .xl\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .xl\:grid-cols-8 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+  .xl\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
   .xl\:flex-col {
     flex-direction: column;
   }
   .xl\:gap-10 {
     gap: 2.5rem;
+  }
+  .xl\:gap-6 {
+    gap: 1.5rem;
   }
   .xl\:self-auto {
     align-self: auto;
@@ -3465,6 +3594,18 @@ select {
 
   .\32xl\:col-span-1 {
     grid-column: span 1 / span 1;
+  }
+
+  .\32xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .\32xl\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+
+  .\32xl\:col-start-4 {
+    grid-column-start: 4;
   }
 
   .\32xl\:max-h-56 {
@@ -3489,6 +3630,10 @@ select {
 
   .\32xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .\32xl\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .\32xl\:px-4 {

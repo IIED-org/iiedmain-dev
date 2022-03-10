@@ -8,26 +8,65 @@
     <link rel="stylesheet" href="/dist/css/styles.css" />
   </head>
   <body class="debug-screens">
-
-
-    {# details - add to separate twig #} 
-    {% block content %}
+    {# details - add to separate twig #} {% block content %}
     <div class="flex flex-col mb-6">
-    details
-      {{ language }} 
-      {{ content.field_date_published|date('F Y') }}
-      {{ node.field_publisher.value }} 
-      {{ content.field_series }} 
-      {{ content.field_journal_ref }} 
-      {{ content.field_isbn }} 
-      {{ content.field_issn }} 
-      {{ content.field_doi }} 
-      {{ content.field_product_code_new }} 
-      {{ content.field_source_publication }}
+      details {{ language }} {{ content.field_date_published|date('F Y') }} {{
+      node.field_publisher.value }} {{ content.field_series }} {{
+      content.field_journal_ref }} {{ content.field_isbn }} {{
+      content.field_issn }} {{ content.field_doi }} {{
+      content.field_product_code_new }} {{ content.field_source_publication }}
     </div>
     {% endblock %}
 
+    <div class="container mx-auto md:max-w-3xl">
+      <nav aria-label="themes">
+        <div class="flex flex-wrap mb-6 space-x-3">
+          {{ content.field_theme_s_}}
+        </div>
+      </nav>
+      <h1 class="mb-6 text-4xl">{{ node.label }}</h1>
+    </div>
 
+    <div
+      class="container mx-auto md:max-w-3xl xl:grid 2xl:grid-cols-4 xl:max-w-screen-xl 2xl:max-w-screen-2xl xl:grid-cols-[1fr_48rem_1fr]"
+    >
+      <div
+        class="order-1 col-span-2 col-start-2 md:max-w-3xl md:order-2 xl:px-8 2xl:px-4"
+      >
+        {#-- standfirst --#}
+        <div
+          class="pb-6 mb-6 prose-lg border-b-2 lg:prose-xl border-iiedorange-500"
+        >
+          {{ content.field_standfirst }}
+        </div>
 
+        {# attribution #} {#-- avatar group --#}
+        <div class="flex border-b border-gray-300">
+          {{ content.field_author_s_ }}
+        </div>
+
+        {#-- date and share --#}
+        <div
+          class="flex flex-col flex-wrap justify-between py-6 border-b border-gray-300 xl:border-none sm:flex-row"
+        >
+          {{ node.published_at.value|date('d F Y') }}
+          <div class="flex items-center">
+            {% include '@iied_tw/partials/_share_links.html.twig' %}
+          </div>
+        </div>
+      </div>
+      {#-- collection --#}
+      <div class="pt-2 mb-6 2xl:col-span-1 2xl:order-1 2xl:pr-12">
+        {{ content.field_collections }}
+      </div>
+
+      {# / attribution #} {# main content #}
+      <div class="container w-full mx-auto md:max-w-3xl">
+        {#-- image --#} {#-- body --#}
+        <div class="pb-12 prose border-b border-gray-300 lg:prose-lg">
+          <div{{ content_attributes.addClass('node-content') }}> {{ content }}
+        </div>
+      </div>
+    </div>
   </body>
 </html>
