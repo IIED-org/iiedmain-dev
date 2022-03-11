@@ -95,5 +95,6 @@ module.exports = {
     require('tailwindcss-debug-screens'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
     ],
 }
