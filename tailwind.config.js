@@ -70,6 +70,9 @@ module.exports = {
           "visited": "#51758B"
         }
       }, 
+      content: {
+        'video': 'url("/dist/images/video.svg")', 
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -85,6 +88,11 @@ module.exports = {
                 borderBottomColor: theme('colors.iiedblue.500'),
                 textDecoration: 'underline',
               },
+            },
+            blockquote: {
+              borderLeftWidth: '0',
+              fontStyle: 'inherit',
+              color: '#ba3f8a',
             },
           },
         },
