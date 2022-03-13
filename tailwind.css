@@ -56,6 +56,21 @@
     @apply my-6;
   }
 
+  blockquote {
+    @apply text-2xl font-headline text-iiedpink-700 pl-0;
+  }
+  /* 
+  blockquote p {
+    position: relative;
+  }
+
+  blockquote p:after {
+    position: absolute;
+    right: 0;
+    font-size: 2.25rem;
+  }
+  */
+
   /*-- rotate 4 colour borders, could be done with plugin. Where a is the parent this could change depending on card link implementation--*/
   .grid a:nth-child(8n + 1) .color-rotate {
     @apply border-iiedpink-500;

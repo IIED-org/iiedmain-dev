@@ -660,6 +660,26 @@ select {
   margin-bottom: 1.5rem;
 }
 
+  blockquote {
+  padding-left: 0px;
+  font-family: Merriweather;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(186 63 138 / var(--tw-text-opacity));
+}
+  /* 
+  blockquote p {
+    position: relative;
+  }
+
+  blockquote p:after {
+    position: absolute;
+    right: 0;
+    font-size: 2.25rem;
+  }
+  */
+
   /*-- rotate 4 colour borders, could be done with plugin. Where a is the parent this could change depending on card link implementation--*/
   .grid a:nth-child(8n + 1) .color-rotate {
   --tw-border-opacity: 1;
@@ -895,9 +915,12 @@ select {
 .prose :where(ol[type="1"]):not(:where([class~="not-prose"] *)) {
   list-style-type: decimal;
 }
-.prose :where(ul):not(:where([class~="not-prose"] *)) {
+.prose ul {
   list-style-type: disc;
   padding-left: 1.625em;
+}
+:where(.prose ul li):not(:where([class~="not-prose"] *))::marker {
+  color: #ce539e;
 }
 .prose :where(ol > li):not(:where([class~="not-prose"] *))::marker {
   font-weight: 400;
@@ -921,7 +944,7 @@ select {
   quotes: "\201C""\201D""\2018""\2019";
   margin-top: 1.6em;
   margin-bottom: 1.6em;
-  padding-left: 1em;
+  padding-left: 0;
 }
 .prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *))::before {
   content: open-quote;
@@ -1126,10 +1149,10 @@ select {
   margin-bottom: 0.5em;
 }
 .prose :where(ol > li):not(:where([class~="not-prose"] *)) {
-  padding-left: 0.375em;
+  padding-left: 0;
 }
 .prose :where(ul > li):not(:where([class~="not-prose"] *)) {
-  padding-left: 0.375em;
+  padding-left: 0;
 }
 .prose > :where(ul > li p):not(:where([class~="not-prose"] *)) {
   margin-top: 0.75em;
@@ -2430,6 +2453,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
+}
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -2445,10 +2472,6 @@ select {
 .text-iiedpink-700 {
   --tw-text-opacity: 1;
   color: rgb(186 63 138 / var(--tw-text-opacity));
-}
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2660,6 +2683,9 @@ select {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.prose-blockquote\:ml-0 :is(:where(blockquote):not(:where([class~="not-prose"] *))) {
+  margin-left: 0px;
 }
 @media (prefers-color-scheme: dark) {
 

@@ -93,6 +93,23 @@ module.exports = {
               borderLeftWidth: '0',
               fontStyle: 'inherit',
               color: '#ba3f8a',
+              paddingLeft: 0,
+            },
+            'ul > li::marker': {
+              color: theme('colors.iiedpink-900'),
+            },
+            'ol > li': {
+              paddingLeft: 0,
+            },
+            'ul > li': {
+              paddingLeft: 0,
+            },
+            ul: {
+              li: {
+                '&::marker': {
+                  color: theme('colors.iiedpink.500'),
+                },
+              },
             },
           },
         },
