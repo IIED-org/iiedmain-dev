@@ -13,7 +13,9 @@ module.exports = {
 
     extend: {
       fontFamily: { 
-        headline: ['Merriweather']
+        headline: ['Merriweather'],
+        'sans': ['Lato'],
+        'light': ['LatoLight'],
       },
       colors: {
         iiedblue: {
@@ -90,19 +92,19 @@ module.exports = {
               },
             },
             blockquote: {
-              borderLeftWidth: '0',
+              borderLeftWidth: false,
               fontStyle: 'inherit',
               color: '#ba3f8a',
-              paddingLeft: 0,
+              paddingLeft: false,
             },
             'ul > li::marker': {
               color: theme('colors.iiedpink-900'),
             },
             'ol > li': {
-              paddingLeft: 0,
+              paddingLeft: false,
             },
             'ul > li': {
-              paddingLeft: 0,
+              paddingLeft: false,
             },
             ul: {
               li: {
@@ -111,6 +113,8 @@ module.exports = {
                 },
               },
             },
+            'blockquote p:first-of-type::before': false,
+            'blockquote p:last-of-type::after': false,
           },
         },
       })

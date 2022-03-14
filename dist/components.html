@@ -7,7 +7,7 @@
     <title>Components</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="debug-screens">
+  <body class="py-24 debug-screens">
     <div class="container p-11">
       <button class="btn btn-orange">Subscribe</button>
     </div>
@@ -30,11 +30,12 @@
 
 
     <!--card-->
-    <div class="p-6 border border-gray-300 rounded-lg">
+    <div class="container">
+    <div class="p-6 border border-gray-300 rounded-xl">
       <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Heading</h2>
       <p class="text-base leading-relaxed">some more text</p>
     </div>
-
+  </div>
     <!-- end card -->
 
     <!--Code starts-->
@@ -50,13 +51,14 @@
     <!--Code ends-->
 
 
-
-    <div class="w-1/4 p-6 bg-white border border-gray-300 rounded-xl hover:shadow-xl">
+    <div class="container py-12 group">
+    <!--person card -->
+    <div class="w-1/4 p-6 bg-white border border-gray-300 rounded-xl group-hover:shadow-xl group">
       <div class="flex flex-col items-center pb-6">
       <img
         src="https://source.unsplash.com/random/150×150/?avatar"
         alt=""
-        class="w-24 h-24 mb-3 rounded-full shadow-lg"
+        class="flex-shrink-0 object-cover w-24 h-24 mb-3 border-2 border-white rounded-full sm:mx-4 ring-1 ring-iiedblue-500 group-hover:shadow-lg"
       />
       <!--Card Header-->
       <h3 class="px-4 mb-4 text-2xl ">
@@ -67,8 +69,10 @@
       </div>
       </div>
     </div>
+    <!--Code ends-->
+  </div>
 
-
+  <div class="container py-12">
     <!--simple tabs-->
     <div class="border-b-2 border-gray-300">
       <ul class="flex space-x-2 cursor-pointer">
@@ -78,7 +82,220 @@
       </ul>
     </div>
     <!--Code ends-->
+</div>
 
+
+    <!-- info box -->
+
+<div class="max-w-md py-12 mx-auto">
+
+  <div class="p-4 mb-8 border border-gray-300 prose-base rounded-xl">
+    <h3 class="flex items-start">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-8 h-8 mr-2 text-iiedblue-500"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+
+      Where does Africa fit in the Belt and Road Initiative?
+    </h3>
+    <p>
+      Where does Africa fit in the Belt and Road Initiative? A trillion
+      dollars, more than 70% of the world’s population, and huge ambition
+      are woven together in China’s Belt and Road Initiative (BRI). Called
+      ‘one belt, one road’ in Chinese, it’s a revival of China’s ancient
+      transcontinental land and sea silk roads. But there is little
+      nostalgia in BRI.
+    </p>
+
+    <button class="flex items-center px-3 py-2 transition rounded-full shadow-sm bg-iiedblue-500 -mb-9 hover:shadow-none hover:bg-iiedblue-600 ">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+      </svg>
+      Show
+    </button> 
+  </div>
+    <!-- end info box -->
+</div>
+
+
+    <!-- box with tabs -->
+  <div class="max-w-xl py-12 mx-auto">
+    <div class="p-4 mb-8 border border-gray-300 prose-base rounded-xl">
+
+      <div class="flex border-b border-gray-300 ">
+        <button class="h-10 px-4 py-2 -mb-px text-base text-center bg-transparent border-b-2 text-iiedblue-800 border-iiedblue-500 whitespace-nowrap focus:outline-none">
+            Tab one
+        </button>
+
+        <button class="h-10 px-4 py-2 -mb-px text-base text-center text-gray-700 bg-transparent border-b-2 border-transparent whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400">
+            Tab two 
+        </button>
+
+        <button class="h-10 px-4 py-2 -mb-px text-base text-center text-gray-700 bg-transparent border-b-2 border-transparent whitespace-nowrap cursor-base focus:outline-none hover:border-gray-400">
+            Tab three
+        </button>
+    </div>
+
+    <?xml version="1.0" encoding="UTF-8"?><svg
+    id="a"
+    xmlns="http://www.w3.org/2000/svg"
+    width="401"
+    height="25"
+    viewBox="0 0 401 25"
+    class="text-iiedpink-500"
+  >
+    <path
+      d="M.5,.5H.5C.5,7.13,5.87,12.5,12.5,12.5H188.5c6.63,0,12,5.37,12,12h0c0-6.63,5.37-12,12-12h176c6.63,0,12-5.37,12-12h0"
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+
+<div class="border-b border-gray-300">
+  <ul class="flex -mb-px">
+  <li class="mb-0 mr-2">
+  <a href="#" class="inline-block px-4 py-4 text-base text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:no-underline hover:text-gray-700 hover:border-gray-400">Tab one</a>
+  </li>
+  <li class="mb-0 mr-2">
+  <a href="#" class="inline-block px-4 py-4 text-base text-center text-gray-900 border-b-2 rounded-t-lg border-iiedblue-600 hover:no-underline active" aria-current="page">Tab two</a>
+  </li>
+  <li class="mb-0 mr-2">
+  <a href="#" class="inline-block px-4 py-4 text-base text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:no-underline hover:text-gray-700 hover:border-gray-400">Tab three</a>
+  </li>
+  <li class="mb-0 mr-2">
+  <a href="#" class="inline-block px-4 py-4 text-base text-center text-gray-500 border-b-2 border-transparent rounded-t-lg hover:no-underline hover:text-gray-700 hover:border-gray-400">Tab four</a>
+  </li>
+  
+  </ul>
+  </div>
+  
+
+
+    </div>
+  </div>
+
+    <!-- end box with tabs -->
+
+
+    <!-- component -->
+<div class="container">
+  <div
+    class="flex flex-col grid-cols-9 p-2 mx-auto md:grid text-blue-50"
+  >
+    <!-- left -->
+    <div class="flex flex-row-reverse md:contents">
+      <div
+        class="col-start-1 col-end-5 p-4 my-4 ml-auto bg-blue-500 shadow-md rounded-xl"
+      >
+        <h3 class="mb-1 text-lg font-semibold">Lorem ipsum</h3>
+        <p class="leading-tight text-justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quaerat?
+        </p>
+      </div>
+      <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+        <div class="flex items-center justify-center w-6 h-full">
+          <div class="w-1 h-full bg-blue-800 pointer-events-none"></div>
+        </div>
+        <div
+          class="absolute w-6 h-6 -mt-3 bg-blue-500 rounded-full shadow top-1/2"
+        ></div>
+      </div>
+    </div>
+    <!-- right -->
+    <div class="flex md:contents">
+      <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+        <div class="flex items-center justify-center w-6 h-full">
+          <div class="w-1 h-full bg-blue-800 pointer-events-none"></div>
+        </div>
+        <div
+          class="absolute w-6 h-6 -mt-3 bg-blue-500 rounded-full shadow top-1/2"
+        ></div>
+      </div>
+      <div
+        class="col-start-6 col-end-10 p-4 my-4 mr-auto bg-blue-500 shadow-md rounded-xl"
+      >
+        <h3 class="mb-1 text-lg font-semibold">Lorem ipsum</h3>
+        <p class="leading-tight text-justify">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Vitae, facilis.
+        </p>
+      </div>
+    </div>
+    <!-- left -->
+    <div class="flex flex-row-reverse md:contents">
+      <div
+        class="col-start-1 col-end-5 p-4 my-4 ml-auto bg-blue-500 shadow-md rounded-xl"
+      >
+        <h3 class="mb-1 text-lg font-semibold">Lorem ipsum</h3>
+        <p class="leading-tight text-justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quaerat?
+        </p>
+      </div>
+      <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+        <div class="flex items-center justify-center w-6 h-full">
+          <div class="w-1 h-full bg-blue-800 pointer-events-none"></div>
+        </div>
+        <div
+          class="absolute w-6 h-6 -mt-3 bg-blue-500 rounded-full shadow top-1/2"
+        ></div>
+      </div>
+    </div>
+    <!-- left -->
+    <div class="flex flex-row-reverse md:contents">
+      <div
+        class="col-start-1 col-end-5 p-4 my-4 ml-auto bg-blue-500 shadow-md rounded-xl"
+      >
+        <h3 class="mb-1 text-lg font-semibold">Lorem ipsum</h3>
+        <p class="leading-tight text-justify">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi,
+          quaerat?
+        </p>
+      </div>
+      <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+        <div class="flex items-center justify-center w-6 h-full">
+          <div class="w-1 h-full bg-blue-800 pointer-events-none"></div>
+        </div>
+        <div
+          class="absolute w-6 h-6 -mt-3 bg-blue-500 rounded-full shadow top-1/2"
+        ></div>
+      </div>
+    </div>
+    <!-- right -->
+    <div class="flex md:contents">
+      <div class="relative col-start-5 col-end-6 mr-10 md:mx-auto">
+        <div class="flex items-center justify-center w-6 h-full">
+          <div class="w-1 h-full bg-blue-800 pointer-events-none"></div>
+        </div>
+        <div
+          class="absolute w-6 h-6 -mt-3 bg-blue-500 rounded-full shadow top-1/2"
+        ></div>
+      </div>
+      <div
+        class="col-start-6 col-end-10 p-4 my-4 mr-auto bg-blue-500 shadow-md rounded-xl"
+      >
+        <h3 class="mb-1 text-lg font-semibold">Lorem ipsum</h3>
+        <p class="leading-tight text-justify">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Vitae, facilis.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   </body>

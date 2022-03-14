@@ -9,6 +9,11 @@
   }
 
   @font-face {
+    font-family: LatoLight;
+    src: url(/dist/fonts/Lato/Lato-Light.ttf) format("truetype");
+  }
+
+  @font-face {
     font-family: Merriweather;
     src: url(/dist/fonts/Merriweather/Merriweather-Regular.ttf)
       format("truetype");
@@ -95,6 +100,17 @@
   }
   .grid a:nth-child(8n + 8) .color-rotate {
     @apply border-iiedpink-500;
+  }
+
+  ol.big-list li::marker {
+    font-family: LatoLight;
+    font-weight: 100;
+    font-size: 2rem;
+    color: #00a9d5;
+  }
+
+  .prose ul li::marker {
+    color: #374151;
   }
 
   .iied-gradient {
