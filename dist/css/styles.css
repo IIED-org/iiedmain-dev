@@ -1724,6 +1724,10 @@ select {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1731,10 +1735,6 @@ select {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 .mr-3 {
   margin-right: 0.75rem;
@@ -2060,15 +2060,6 @@ select {
 .list-none {
   list-style-type: none;
 }
-.auto-cols-auto {
-  grid-auto-columns: auto;
-}
-.grid-flow-row {
-  grid-auto-flow: row;
-}
-.grid-flow-col {
-  grid-auto-flow: column;
-}
 .grid-cols-9 {
   grid-template-columns: repeat(9, minmax(0, 1fr));
 }
@@ -2280,10 +2271,6 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
-.border-iiedpink-700 {
-  --tw-border-opacity: 1;
-  border-color: rgb(186 63 138 / var(--tw-border-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2335,6 +2322,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(246 123 198 / var(--tw-bg-opacity));
 }
+.bg-iiedblue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 209 253 / var(--tw-bg-opacity));
+}
 .bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
@@ -2346,14 +2337,6 @@ select {
 .bg-iiedblue-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(50 229 255 / var(--tw-bg-opacity));
-}
-.bg-iiedblue-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(40 219 255 / var(--tw-bg-opacity));
-}
-.bg-iiedblue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 209 253 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -3740,20 +3723,20 @@ select {
   .lg\:order-2 {
     order: 2;
   }
+  .lg\:col-span-12 {
+    grid-column: span 12 / span 12;
+  }
+  .lg\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
-  }
-  .lg\:col-span-4 {
-    grid-column: span 4 / span 4;
-  }
-  .lg\:col-span-6 {
-    grid-column: span 6 / span 6;
-  }
-  .lg\:col-span-12 {
-    grid-column: span 12 / span 12;
   }
   .lg\:mb-0 {
     margin-bottom: 0px;
@@ -3794,6 +3777,9 @@ select {
   .lg\:max-w-4xl {
     max-width: 56rem;
   }
+  .lg\:max-w-screen-lg {
+    max-width: 1024px;
+  }
   .lg\:max-w-max {
     max-width: -webkit-max-content;
     max-width: -moz-max-content;
@@ -3804,9 +3790,6 @@ select {
   }
   .lg\:max-w-screen-xl {
     max-width: 1280px;
-  }
-  .lg\:max-w-screen-lg {
-    max-width: 1024px;
   }
   .lg\:-rotate-3 {
     --tw-rotate: -3deg;
@@ -3820,9 +3803,6 @@ select {
   }
   .lg\:flex-row {
     flex-direction: row;
-  }
-  .lg\:gap-6 {
-    gap: 1.5rem;
   }
   .lg\:gap-x-6 {
     -moz-column-gap: 1.5rem;
@@ -3930,11 +3910,11 @@ select {
   .xl\:col-span-9 {
     grid-column: span 9 / span 9;
   }
-  .xl\:col-span-12 {
-    grid-column: span 12 / span 12;
-  }
   .xl\:col-span-10 {
     grid-column: span 10 / span 10;
+  }
+  .xl\:col-span-12 {
+    grid-column: span 12 / span 12;
   }
   .xl\:col-start-4 {
     grid-column-start: 4;
@@ -3950,12 +3930,6 @@ select {
   }
   .xl\:row-auto {
     grid-row: auto;
-  }
-  .xl\:row-span-3 {
-    grid-row: span 3 / span 3;
-  }
-  .xl\:row-end-auto {
-    grid-row-end: auto;
   }
   .xl\:mb-4 {
     margin-bottom: 1rem;
@@ -4004,12 +3978,6 @@ select {
   .xl\:auto-cols-max {
     grid-auto-columns: -webkit-max-content;
     grid-auto-columns: max-content;
-  }
-  .xl\:grid-flow-row {
-    grid-auto-flow: row;
-  }
-  .xl\:grid-flow-col {
-    grid-auto-flow: column;
   }
   .xl\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -4081,16 +4049,16 @@ select {
     grid-column: span 1 / span 1;
   }
 
+  .\32xl\:col-span-9 {
+    grid-column: span 9 / span 9;
+  }
+
   .\32xl\:col-span-8 {
     grid-column: span 8 / span 8;
   }
 
   .\32xl\:col-span-12 {
     grid-column: span 12 / span 12;
-  }
-
-  .\32xl\:col-span-9 {
-    grid-column: span 9 / span 9;
   }
 
   .\32xl\:col-start-4 {
