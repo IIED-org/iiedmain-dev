@@ -73,7 +73,8 @@ module.exports = {
         }
       }, 
       content: {
-        'video': 'url("/dist/images/video.svg")', 
+        'video': 'url("/dist/images/video.svg")',
+        'keypoint': 'url("/dist/images/keypoint.svg")',
       },
       typography: (theme) => ({
         DEFAULT: {

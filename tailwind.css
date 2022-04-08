@@ -113,6 +113,13 @@
     color: #374151;
   }
 
+  .keypoint {
+    @apply list-none pl-0 !important;
+  }
+  .keypoint li {
+    @apply before:content-keypoint items-center before:mr-4;
+  }
+
   .iied-gradient {
     background: rgb(0, 179, 223);
     background: linear-gradient(
