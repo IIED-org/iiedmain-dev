@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid | templates</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+  </head>
+  <body class="debug-screens">
+    <main class="container my-12">
+      <div class="grid grid-flow-row-dense gap-6 xl:gap-10 md:grid-cols-2">
+        <!-- cards -->
+
+        <!-- pub card  -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex content-start h-full overflow-hidden transition-shadow bg-white border border-gray-300 grow card rounded-xl hover:shadow-xl"
+          >
+            <div class="w-3/12 h-auto p-2">
+              <img
+                src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
+                alt="Cover"
+                typeof="Image"
+                class="w-24 h-auto shadow-md lg:w-48"
+              />
+            </div>
+            <div class="flex flex-col justify-between w-9/12">
+              <h5 class="m-4 text-gray-900">
+                Assessing vulnerabilities to disaster displacement: a good
+                practice review
+              </h5>
+
+              <p class="m-4 text-gray-500">December 2021</p>
+            </div>
+          </div>
+        </a>
+        <!-- / pub card -->
+
+        <div
+          class="flex w-full overflow-hidden bg-white rounded-lg shadow cursor-pointer hover:shadow-md"
+        >
+          <img
+            class="object-cover w-full h-48"
+            src="https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=420&q=80"
+            alt="Flower and sky"
+          />
+
+          <div class="relative p-4">
+            <h3 class="text-base font-medium text-gray-800 md:text-xl">
+              This is card title
+            </h3>
+
+            <p class="mt-4 text-base text-gray-600 md:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit ad
+              assumenda.
+            </p>
+          </div>
+        </div>
+
+        <!-- /cards -->
+      </div>
+    </main>
+  </body>
+</html>
