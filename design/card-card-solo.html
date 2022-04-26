@@ -9,37 +9,36 @@
   </head>
   <body class="debug-screens">
     <main class="container my-12">
-      <div
-        class="grid grid-flow-row-dense gap-6 md:grid-cols-2 xl:gap-10 lg:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2"
-      >
+      <div class="container grid max-w-6xl gap-10 mx-auto">
         <!-- cards -->
 
         <!-- standard card -->
-        <div class="sm:col-span-2 xl:col-span-3">
+        <div class="">
           <a href="#" class="hover:no-underline">
             <div
-              class="flex flex-col h-full overflow-hidden transition bg-white border border-gray-300 lg:flex-row rounded-xl group hover:shadow-lg hover:brightness-95"
+              class="flex flex-col h-full overflow-hidden transition bg-white border border-gray-300 sm:flex-wrap rounded-xl group hover:shadow-lg hover:brightness-95"
             >
-              <div class="lg:order-2">
+              <div class="">
                 <img
-                  class="object-cover w-full max-h-96"
+                  class="object-cover w-full max-h-96 md:w-48"
                   src="https://source.unsplash.com/random/685x459?vegan-food"
                   alt=""
                 />
               </div>
-              <div class="flex flex-col justify-between h-full p-4 lg:w-9/12">
-                <h4>
-                  Card title of a reasonable Card title of a reasonable length
-                  Card title of a reasonable length length Card title of a
-                  reasonable length
-                </h4>
-                <p>
-                  To the concern about the very large urban adaptation finance
-                  gap must be added the worry that what finance exists does
-                  little to support local governments and civil society in urban
-                  communities
-                </p>
-
+              <div class="flex flex-col justify-between p-4 lg:w-9/12">
+                <div>
+                  <h4 class="mb-4">
+                    Card title of a reasonable Card title of a reasonable length
+                    Card title of a reasonable length length Card title of a
+                    reasonable length
+                  </h4>
+                  <p class="mb-4 text-gray-700">
+                    To the concern about the very large urban adaptation finance
+                    gap must be added the worry that what finance exists does
+                    little to support local governments and civil society in
+                    urban communities
+                  </p>
+                </div>
                 <p class="text-gray-500">date</p>
               </div>
             </div>
@@ -47,47 +46,65 @@
         </div>
         <!-- / standard card -->
 
-        <!-- pub card  -->
-        <div class="sm:col-span-2 xl:col-span-3">
-          <a href="#" class="hover:no-underline">
-            <div
-              class="relative flex content-start h-full overflow-hidden transition bg-white border border-gray-300 group grow card rounded-xl hover:shadow-lg hover:brightness-95"
-            >
-              <span
-                class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-iiedgreen-300 to-iiedblue-500"
-              ></span>
-              <div class="w-3/12 p-2 max-h-44 md:max-h-56 lg:max-h-96">
-                <img
-                  src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
-                  alt="Cover"
-                  typeof="Image"
-                  class="m-auto transition duration-300 ease-out shadow-lg w-fit sm:-rotate-3 group-hover:-rotate-2 group-hover:scale-110"
-                />
-              </div>
-              <div class="flex flex-col justify-between w-9/12 h-full p-4">
-                <div>
-                  <h4 class="mb-4">
-                    Assessing vulnerabilities to disaster displacement: a good
-                    practice review
-                  </h4>
-                  <p class="mb-4 text-gray-700">
-                    This paper reviews current practice for analysing and
-                    assessing disaster displacement risks and presents
-                    recommendations on how to improve operational decision
-                    making.
-                  </p>
-                </div>
-                <div>
-                  <p class="text-gray-500">December 2021</p>
-                </div>
-              </div>
+        <!-- project related card -->
+        <div
+          class="overflow-hidden bg-white border border-gray-300 2xl:max-w-7xl hover:shadow-xl rounded-xl"
+        >
+          <div class="md:flex">
+            <div class="md:shrink-0">
+              <img
+                class="object-cover w-full md:w-48 lg:w-full md:h-full"
+                src="https://pubs.iied.org/sites/default/files/styles/card_370/public/images/projects/mozambique_cyclone.jpg"
+                alt=""
+              />
             </div>
-          </a>
+            <div class="p-4">
+              <h4 class="mb-4">
+                Tackling loss and damage in vulnerable countries: improving
+                evidence and co-generating pathways to impact
+              </h4>
+              <p class="text-gray-700">
+                IIED is working with least developed countries, Small Island
+                Developing States and representatives of vulnerable communities
+                to develop a vision for practical action to address loss and
+                damage caused by climate change.
+              </p>
+            </div>
+          </div>
         </div>
+        <!-- / project related card -->
+
+        <!-- pub card  -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex flex-col content-start h-full overflow-hidden transition-shadow bg-white border border-gray-300 grow group rounded-xl hover:shadow-lg sm:flex-wrap"
+          >
+            <div
+              class="w-3/12 p-2 sm:overflow-hidden sm:bg-gray-300 sm:w-full max-h-44 2xl:max-h-56"
+            >
+              <img
+                src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
+                alt="Cover"
+                typeof="Image"
+                class="m-auto transition duration-300 ease-out shadow-lg w-fit sm:w-fit sm:-rotate-3 group-hover:-rotate-2 group-hover:scale-110"
+              />
+            </div>
+            <div
+              class="flex flex-col justify-between w-9/12 sm:w-full grow sm:border-t-2 color-rotate"
+            >
+              <h4 class="m-4 text-gray-900">
+                Assessing vulnerabilities to disaster displacement: a good
+                practice review
+              </h4>
+
+              <p class="m-4 text-gray-500">December 2021</p>
+            </div>
+          </div>
+        </a>
         <!-- / pub card -->
 
         <!-- long read card -->
-        <div class="sm:col-span-2 xl:col-span-3">
+        <div class="">
           <a href="#" class="hover:no-underline">
             <div
               class="flex flex-col h-full overflow-hidden transition-shadow bg-gray-800 border border-gray-300 lg:flex-row rounded-xl hover:shadow-lg hover:brightness-95"
@@ -122,7 +139,7 @@
         <!-- end long read card -->
 
         <!-- card odd -->
-        <div class="sm:col-span-2 xl:col-span-3">
+        <div class="">
           <a href="#" class="hover:no-underline">
             <div
               class="flex flex-col h-full overflow-hidden transition-shadow bg-white border border-gray-300 lg:relative lg:flex-row group rounded-xl hover:shadow-lg hover:brightness-95"
@@ -175,18 +192,6 @@
           </a>
         </div>
         <!-- end card odd -->
-
-        <!-- card odd span 3 -->
-        <div class="sm:col-span-2 xl:col-span-3">
-          <div class="h-6 my-2 bg-pink-500"></div>
-        </div>
-        <!-- end card odd span 3 -->
-
-        <!-- card odd span 4 -->
-        <div class="sm:col-span-2 xl:col-span-4">
-          <div class="h-6 my-2 bg-pink-500"></div>
-        </div>
-        <!-- end card odd span 4 -->
 
         <!-- /cards -->
       </div>
