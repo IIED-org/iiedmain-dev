@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card lg 4 col | templates</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+  </head>
+  <body class="debug-screens">
+    <main class="container my-12">
+      <div
+        class="grid grid-flow-row-dense gap-6 md:grid-cols-2 xl:gap-10 lg:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2"
+      >
+        <!-- cards -->
+
+        <!-- standard card -->
+        <div class="sm:col-span-2 xl:col-span-3">
+          <a href="#" class="hover:no-underline">
+            <div
+              class="flex flex-col h-full overflow-hidden transition bg-white border border-gray-300 lg:flex-row rounded-xl group hover:shadow-lg hover:brightness-95"
+            >
+              <div class="lg:order-2">
+                <img
+                  class="object-cover w-full max-h-96"
+                  src="https://source.unsplash.com/random/685x459?vegan-food"
+                  alt=""
+                />
+              </div>
+              <div class="flex flex-col justify-between h-full p-4 lg:w-9/12">
+                <h4>
+                  Card title of a reasonable Card title of a reasonable length
+                  Card title of a reasonable length length Card title of a
+                  reasonable length
+                </h4>
+
+                <p class="text-gray-500">date</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- / standard card -->
+
+        <!-- pub card  -->
+        <div class="sm:col-span-2 xl:col-span-3">
+          <a href="#" class="hover:no-underline">
+            <div
+              class="flex content-start h-full overflow-hidden transition-shadow bg-white border border-gray-300 sm:flex-col grow card rounded-xl hover:shadow-lg sm:flex-wrap"
+            >
+              <div
+                class="w-3/12 p-2 sm:overflow-hidden sm:bg-gray-300 sm:w-full max-h-44 2xl:max-h-56"
+              >
+                <img
+                  src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
+                  alt="Cover"
+                  typeof="Image"
+                  class="m-auto transition duration-300 ease-out shadow-lg w-fit sm:w-fit sm:-rotate-3 hover:-rotate-2 hover:scale-110"
+                />
+              </div>
+              <div
+                class="flex flex-col justify-between w-9/12 sm:w-full grow sm:border-t-2 color-rotate"
+              >
+                <h4 class="m-4 text-gray-900">
+                  Assessing vulnerabilities to disaster displacement: a good
+                  practice review
+                </h4>
+
+                <p class="m-4 text-gray-500 dark:text-gray-400">
+                  December 2021
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- / pub card -->
+
+        <!-- long read card -->
+        <div class="sm:col-span-2 xl:col-span-3">
+          <a href="#" class="hover:no-underline">
+            <div
+              class="flex flex-col h-full overflow-hidden transition-shadow bg-gray-800 border border-gray-300 lg:flex-row rounded-xl hover:shadow-lg hover:brightness-95"
+            >
+              <div class="border-b-4 lg:order-2 border-iiedpink-500">
+                <img
+                  class="object-cover w-full max-h-96"
+                  src="https://source.unsplash.com/random/685x459?vegan-food"
+                  alt=""
+                />
+              </div>
+              <div class="flex flex-col justify-between h-full p-4 lg:w-9/12">
+                <div>
+                  <h4 class="mb-4 text-white">
+                    Long read title of a reasonable length
+                  </h4>
+
+                  <p class="mb-3 text-gray-300">
+                    Long read sub-title or description which is generally a
+                    little longer than the title
+                  </p>
+                </div>
+                <div
+                  class="-mr-4 border-b text-iiedorange-500 border-iiedorange-500"
+                >
+                  <span>Long read</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- end long read card -->
+
+        <!-- card odd -->
+        <div class="sm:col-span-2 xl:col-span-3">
+          <a href="#" class="hover:no-underline">
+            <div
+              class="flex flex-col h-full overflow-hidden transition-shadow bg-white border border-gray-300 lg:relative lg:flex-row group rounded-xl hover:shadow-lg hover:brightness-95"
+            >
+              <div class="relative lg:static lg:order-2">
+                <img
+                  class="object-cover w-full max-h-96"
+                  src="https://source.unsplash.com/random/685x459?vegan"
+                  alt="vegan"
+                />
+                <div
+                  class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-gray-900 lg:h-10 lg:top-0 lg:z-30 bg-iiedblue-500 rounded-tr-xl lg:rounded-tr-none lg:rounded-br-xl"
+                >
+                  Blog
+                </div>
+
+                <svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute right-0 w-3 h-3 bottom-3 fill-white lg:hidden"
+                >
+                  <path
+                    id="corner-tr"
+                    data-name="corner-r"
+                    d="M0,12A12,12,0,0,0,12,0V12Z"
+                  />
+                </svg>
+              </div>
+
+              <div
+                class="z-20 flex flex-col justify-between h-full p-4 -mt-3 bg-white lg:mt-0 lg:-mr-3 rounded-tl-xl lg:w-9/12 lg:rounded-br-xl lg:relative"
+              >
+                <svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="top-0 hidden w-3 h-3 bottom-3 -right-3 fill-white lg:block lg:absolute"
+                >
+                  <path
+                    id="corner-tl"
+                    data-name="corner-tl"
+                    d="M12,0A12,12,0,0,0,0,12V0Z"
+                  />
+                </svg>
+
+                <h4 class="mb-4 lg:mt-8">Card title odd</h4>
+
+                <p class="text-gray-500">Date 2022</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- end card odd -->
+
+        <!-- card odd span 3 -->
+        <div class="sm:col-span-2 xl:col-span-3">
+          <div class="h-6 my-2 bg-pink-500"></div>
+        </div>
+        <!-- end card odd span 3 -->
+
+        <!-- card odd span 4 -->
+        <div class="sm:col-span-2 xl:col-span-4">
+          <div class="h-6 my-2 bg-pink-500"></div>
+        </div>
+        <!-- end card odd span 4 -->
+
+        <!-- /cards -->
+      </div>
+    </main>
+  </body>
+</html>

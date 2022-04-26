@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card md 4 col | templates</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+  </head>
+  <body class="debug-screens">
+    <main class="container my-12">
+      <div
+        class="grid grid-flow-row-dense gap-6 md:grid-cols-2 xl:gap-10 lg:grid-cols-2 xl:grid-cols-4 sm:grid-cols-2"
+      >
+        <!-- cards -->
+
+        <!-- standard card -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex flex-col h-full overflow-hidden transition-shadow bg-white border border-gray-300 rounded-xl group hover:shadow-lg"
+          >
+            <img
+              class="object-cover w-full lg:max-h-64"
+              src="https://source.unsplash.com/random/685x459?vegan-food"
+              alt=""
+            />
+
+            <div class="flex flex-col justify-between h-full p-4">
+              <h4>Card title of a reasonable length</h4>
+
+              <p class="text-gray-500">date</p>
+            </div>
+          </div>
+        </a>
+        <!-- / standard card -->
+
+        <!-- pub card  -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex content-start h-full overflow-hidden transition-shadow bg-white border border-gray-300 sm:flex-col grow card rounded-xl hover:shadow-lg sm:flex-wrap"
+          >
+            <div
+              class="w-3/12 p-2 sm:overflow-hidden sm:bg-gray-300 sm:w-full max-h-44 2xl:max-h-56"
+            >
+              <img
+                src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
+                alt="Cover"
+                typeof="Image"
+                class="m-auto transition duration-300 ease-out shadow-lg w-fit sm:w-fit sm:-rotate-3 hover:-rotate-2 hover:scale-110"
+              />
+            </div>
+            <div
+              class="flex flex-col justify-between w-9/12 sm:w-full grow sm:border-t-2 color-rotate"
+            >
+              <h4 class="m-4 text-gray-900">
+                Assessing vulnerabilities to disaster displacement: a good
+                practice review
+              </h4>
+
+              <p class="m-4 text-gray-500 dark:text-gray-400">December 2021</p>
+            </div>
+          </div>
+        </a>
+        <!-- / pub card -->
+
+        <!-- long read card -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex flex-col overflow-hidden transition-shadow bg-gray-800 border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="border-b-4 border-iiedpink-500">
+              <img
+                class="object-cover w-full lg:max-h-64"
+                src="https://source.unsplash.com/random/400x225?vegan-food"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col justify-between h-full p-4">
+              <div>
+                <h4 class="mb-4 text-white">
+                  Long read title of a reasonable length
+                </h4>
+
+                <p class="mb-3 text-gray-300">
+                  Long read sub-title or description which is generally a little
+                  longer than the title Long read sub-title or description which
+                  is generally a little longer than the title Long read
+                  sub-title or description which is generally a little longer
+                  than the title
+                </p>
+              </div>
+              <div
+                class="-mr-4 border-b text-iiedorange-500 border-iiedorange-500"
+              >
+                <span>Long read</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <!-- end long read card -->
+
+        <!-- card odd -->
+        <a href="#" class="hover:no-underline">
+          <div
+            class="flex flex-col h-full overflow-hidden transition-shadow bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                class="w-full"
+                src="https://source.unsplash.com/random/400x225?vegan"
+                alt="vegan food"
+              />
+              <div
+                class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-gray-900 bg-iiedblue-500 rounded-tr-xl"
+              >
+                Blog
+              </div>
+
+              <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute right-0 w-3 h-3 bottom-3 fill-white"
+              >
+                <path
+                  id="corner-tr"
+                  data-name="corner-r"
+                  d="M0,12A12,12,0,0,0,12,0V12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="z-20 flex flex-col justify-between h-full p-4 -mt-3 bg-white rounded-tl-xl"
+            >
+              <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                Card title odd
+              </h2>
+
+              <p class="text-gray-500 dark:text-gray-500">Date 2022</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- end card odd -->
+
+        <!-- card odd span 2 -->
+        <div class="sm:col-span-2 lg:col-span-1 xl:col-span-2">
+          <a href="#" class="hover:no-underline">
+            <div
+              class="flex flex-col h-full overflow-hidden transition-shadow bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+            >
+              <div class="relative">
+                <img
+                  class="w-full"
+                  src="https://source.unsplash.com/random/400x225?vegan"
+                  alt="vegan food"
+                />
+                <div
+                  class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-gray-900 bg-iiedblue-500 rounded-tr-xl"
+                >
+                  Blog
+                </div>
+
+                <svg
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute right-0 w-3 h-3 bottom-3 fill-white"
+                >
+                  <path
+                    id="corner-tr"
+                    data-name="corner-r"
+                    d="M0,12A12,12,0,0,0,12,0V12Z"
+                  />
+                </svg>
+              </div>
+
+              <div
+                class="z-20 flex flex-col justify-between h-full p-4 -mt-3 bg-white rounded-tl-xl"
+              >
+                <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                  Card title odd
+                </h2>
+
+                <p class="text-gray-500 dark:text-gray-500">Date 2022</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- end card odd span 2 -->
+
+        <!-- /cards -->
+      </div>
+    </main>
+  </body>
+</html>
