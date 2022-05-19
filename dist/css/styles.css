@@ -2123,6 +2123,9 @@ select {
 .max-w-xs {
   max-width: 20rem;
 }
+.max-w-none {
+  max-width: none;
+}
 .flex-auto {
   flex: 1 1 auto;
 }
@@ -2540,6 +2543,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(252 179 22 / var(--tw-bg-opacity));
 }
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -2590,6 +2597,9 @@ select {
 }
 .fill-iiedblue-500 {
   fill: #00b3df;
+}
+.fill-iiedgreen-500 {
+  fill: #aac02c;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -2753,6 +2763,9 @@ select {
 }
 .text-justify {
   text-align: justify;
+}
+.align-baseline {
+  vertical-align: baseline;
 }
 .font-headline {
   font-family: Merriweather;
@@ -4352,6 +4365,9 @@ select {
   .xl\:col-span-12 {
     grid-column: span 12 / span 12;
   }
+  .xl\:col-span-8 {
+    grid-column: span 8 / span 8;
+  }
   .xl\:col-start-4 {
     grid-column-start: 4;
   }
@@ -4471,6 +4487,10 @@ select {
   }
   .xl\:pl-2 {
     padding-left: 0.5rem;
+  }
+  .xl\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
