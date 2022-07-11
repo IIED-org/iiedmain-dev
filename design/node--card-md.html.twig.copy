@@ -1,6 +1,6 @@
 
 {#
-For general featured card display
+This is a copy of the card twig before updating the CSS to odd / even styles
 #}
 
 {# odd #}
