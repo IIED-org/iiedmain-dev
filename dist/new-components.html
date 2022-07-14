@@ -44,8 +44,9 @@
 
       <!-- tags -->
       <div
-        class="flex w-full gap-2 px-4 py-6 overflow-auto overflow-x-auto whitespace-no-wrap snap-x snap-mandatory"
+        class="flex items-center w-full gap-2 px-4 py-6 mr-2 overflow-auto overflow-x-auto whitespace-no-wrap snap-x snap-mandatory"
       >
+        <div class="whitespace-nowrap">Also related to</div>
         <div
           class="h-10 px-4 py-2 text-base text-gray-700 transition-colors duration-200 bg-gray-100 rounded-full shrink-0 focus:shadow-outline hover:bg-gray-200"
         >
@@ -101,7 +102,7 @@
           <div x-data="{ open: false }">
             <button
               x-on:click="open = ! open"
-              class="flex items-center px-4 py-2 text-gray-900 transition bg-gray-100 rounded-full -mb-9 hover:bg-gray-200"
+              class="flex items-center px-4 py-2 text-gray-900 transition bg-gray-100 rounded-full -mb-9 hover:bg-gradient-to-t from-gray-200 to-gray-100 via-gray-100"
             >
               See all our previous stuff
 
@@ -209,5 +210,241 @@
         </div>
       </div>
     </div>
+
+
+    <div x-data="{swiper: null}"
+  x-init="swiper = new Swiper($refs.container, {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 0,
+  
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 0,
+        },
+      },
+    })"
+  class="relative flex flex-row w-10/12 mx-auto"
+>
+  <div class="absolute inset-y-0 left-0 z-10 flex items-center">
+    <button @click="swiper.slidePrev()" 
+            class="flex items-center justify-center w-10 h-10 -ml-2 bg-white rounded-full shadow lg:-ml-4 focus:outline-none">
+      <svg viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 chevron-left"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+
+  <div class="swiper-container" x-ref="container">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="p-4 swiper-slide">
+        <div class="flex flex-col overflow-hidden rounded shadow">
+          <div class="flex-shrink-0">
+            <img class="object-cover w-full h-48" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
+          </div>
+        </div>
+      </div>
+              
+      <div class="p-4 swiper-slide">
+        <div class="flex flex-col overflow-hidden rounded shadow">
+          <div class="flex-shrink-0">
+            <img class="object-cover w-full h-48" src="https://images.unsplash.com/photo-1598951092651-653c21f5d0b9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="">
+          </div>
+        </div>
+      </div>
+      
+      <div class="p-4 swiper-slide">
+        <div class="flex flex-col overflow-hidden rounded shadow">
+          <div class="flex-shrink-0">
+            <img class="object-cover w-full h-48" src="https://images.unsplash.com/photo-1598946423291-ce029c687a42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute inset-y-0 right-0 z-10 flex items-center">
+    <button @click="swiper.slideNext()" 
+            class="flex items-center justify-center w-10 h-10 -mr-2 bg-white rounded-full shadow lg:-mr-4 focus:outline-none">
+      <svg viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6 chevron-right"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- exmaple carousel -->
+
+<div class="flex flex-col items-center justify-center h-screen bg-teal-100">
+  
+  <div 
+    class="relative max-w-4xl mx-auto"
+    x-data="{ activeSlide: 1, slides: [1, 2, 3, 4, 5] }"
+   >
+    <!-- Slides -->
+    <template x-for="slide in slides" :key="slide">
+      <div
+         x-show="activeSlide === slide"
+         class="flex items-center h-64 p-24 text-5xl font-bold text-white bg-teal-500 rounded-lg">
+        <span class="w-12 text-center" x-text="slide"></span>
+        <span class="text-teal-300">/</span>
+        <span class="w-12 text-center" x-text="slides.length"></span>
+      </div>
+    </template>
+    
+    <!-- Prev/Next Arrows -->
+    <div class="absolute inset-0 flex">
+      <div class="flex items-center justify-start w-1/2">
+        <button 
+          class="w-12 h-12 -ml-6 font-bold text-teal-500 bg-teal-100 rounded-full hover:text-orange-500 hover:shadow-lg"
+          x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+          &#8592;
+         </button>
+      </div>
+      <div class="flex items-center justify-end w-1/2">
+        <button 
+          class="w-12 h-12 -mr-6 font-bold text-teal-500 bg-teal-100 rounded-full hover:text-orange-500 hover:shadow"
+          x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1">
+          &#8594;
+        </button>
+      </div>        
+    </div>
+
+  </div>
+  
+  </div>
+</div>
+
+    <!-- CTA banner pink newsletter --->
+
+    <div
+      class="relative mb-6 overflow-visible bg-gradient-to-r from-iiedpink-900 to-iiedpink-700 via-iiedpink-800"
+    >
+      <div
+        class="container flex flex-wrap items-center p-4 space-x-6 space-y-6 sm:space-y-0 sm:flex-nowrap"
+      >
+        <div class="h-48 max-w-xs">
+          <img
+            class="object-cover"
+            src="/dist/images/newsletter-image.svg"
+            alt="newsletter"
+          />
+        </div>
+        <div class="">
+          <h2 class="max-w-screen-md mb-4 text-white">
+            Get closer to our latest research on critical issues by signing up
+            to our range of email newsletters
+          </h2>
+
+          <button
+            class="flex items-center px-3 py-2 text-white transition border border-white rounded-full shadow-sm hover:shadow-none hover:ring-white hover:ring-1"
+          >
+            <svg
+              id="a"
+              xmlns="http://www.w3.org/2000/svg"
+              width="29.97"
+              height="22.47"
+              viewBox="0 0 29.97 22.47"
+              class="mr-3"
+            >
+              <path
+                id="b"
+                d="M23.5,17.97c0,1.1-.91,2-2.04,2h-7.46c-1.13,0-2.04,.9-2.04,2,0-1.1-.91-2-2.04-2H2.54c-1.13,0-2.04-.9-2.04-2"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width=".99"
+              />
+              <line
+                id="c"
+                x1="12.5"
+                y1="14.97"
+                x2="2.5"
+                y2="14.97"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+              />
+              <line
+                id="d"
+                x1="10.5"
+                y1="11.97"
+                x2="2.5"
+                y2="11.97"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+              />
+              <line
+                id="e"
+                x1="9.5"
+                y1="8.97"
+                x2="2.5"
+                y2="8.97"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+              />
+              <path
+                id="f"
+                d="M29.17,9.56l-11.05,6.81c-.32,.2-.73,.09-.93-.24l-4.6-7.8c-.19-.33-.09-.75,.23-.95L23.87,.57c.32-.2,.73-.09,.93,.23l4.6,7.8c.19,.33,.09,.75-.23,.95h0Z"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width=".95"
+              />
+              <path
+                id="g"
+                d="M24.85,1.39l-2.89,7.97c-.1,.28-.38,.45-.68,.42l-8.24-1.17"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width=".95"
+              />
+              <line
+                id="h"
+                x1="29.28"
+                y1="9.06"
+                x2="22.71"
+                y2="7.96"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width=".95"
+              />
+              <line
+                id="i"
+                x1="19.87"
+                y1="9.6"
+                x2="17.63"
+                y2="16.24"
+                fill="none"
+                stroke="#fff"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                stroke-width=".95"
+              />
+            </svg>
+
+            Subscribe to newsletters
+          </button>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
