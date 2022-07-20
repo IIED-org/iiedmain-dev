@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search page | templates</title>
+    <title>Sign up page | templates</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.8.2/dist/alpine.js"
+      defer
+    ></script>
   </head>
   <body class="debug-screens">
     <header class="text-gray-600 bg-white body-font">
@@ -296,316 +300,191 @@
       </div>
     </header>
 
-    <main>
+    <section
+      class="container mx-auto my-12 border-b border-gray-300 bg-slate-100"
+    >
       <div
-        class="container gap-10 py-8 mx-auto lg:grid lg:grid-flow-row lg:grid-cols-3"
+        class="overflow-hidden xl:grid xl:gap-x-6 md:max-w-3xl xl:max-w-screen-xl 2xl:max-w-screen-2xl xl:grid-cols-12"
       >
-        <!-- left sidebar filter -->
-        <div class="mb-4 md:row-span-1">
-          <div class="flex justify-between mb-6">
-            <!--  filter button  -->
-            <div>
-              <div
-                class="flex items-center w-24 px-4 py-3 border border-gray-300 rounded-lg"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-4 h-4 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-                  />
-                </svg>
-                <p class="font-bold text-gray-800">Filter</p>
-              </div>
-              <div
-                class="relative flex items-center justify-center w-24 overflow-visible"
-              >
-                <svg
-                  width="18.569"
-                  height="9.992"
-                  viewBox="0 0 18.569 9.992"
-                  class="absolute -bottom-2"
-                >
-                  <path
-                    id="Path_8067"
-                    data-name="Path 8067"
-                    d="M3140.671,24l8.931,8.931L3158.533,24"
-                    transform="translate(-3140.318 -23.646)"
-                    fill="#fff"
-                    stroke="#d7dbe0"
-                    stroke-linecap="round"
-                    stroke-width="1"
-                  />
-                </svg>
-              </div>
-            </div>
-            <!--  / filter button  -->
-
-            <!-- sort button -->
-
-            <div
-              class="flex items-center justify-between px-3 py-3 border border-gray-300 rounded-lg w-44"
-            >
-              <p class="font-bold text-gray-800">Sort by relevance</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-
-            <!-- / sort button -->
-          </div>
-
-          <!-- filter box -->
-          <div class="bg-white border border-gray-300 rounded-lg">
-            <div
-              class="flex justify-between w-full px-3 py-2 border-b border-gray-300 rounded-t-lg"
-            >
-              <span>Theme</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-            <div
-              class="flex justify-between w-full px-3 py-2 border-b border-gray-300"
-            >
-              <span>Type</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-            <div
-              class="flex justify-between w-full px-3 py-2 border-b border-gray-300"
-            >
-              <span>Country</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-            <div class="flex justify-between w-full px-3 py-2">
-              <span>Language</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </div>
-          </div>
-          <!-- / filter box -->
+        <div class="align-baseline xl:col-span-4">
+          <h1 class="mb-4">Email newsletters</h1>
         </div>
-        <!-- / left sidebar filter -->
-
-        <!-- results -->
-        <div class="md:col-span-2">
-          <p class="mb-4 text-lg">88 results found for "search term"</p>
-          <div class="overflow-hidden border border-gray-300 rounded-lg">
-            <!-- wrapper -->
-
-            <!-- pub card  -->
-            <a href="#" class="hover:no-underline">
-              <div
-                class="flex h-full overflow-hidden bg-white border-b border-gray-300 grow hover:bg-gray-100"
-              >
-                <div class="w-3/12 p-2">
-                  <img
-                    src="https://pubs.iied.org/sites/default/files/styles/card_cover/public/pdfs/2021-12/20671IIED.pdf.jpeg?itok=tmLNRIlr"
-                    alt="Cover"
-                    typeof="Image"
-                    class="w-24 h-auto mx-auto rounded shadow-md"
-                  />
-                </div>
-                <div class="flex flex-col justify-between w-9/12 p-2">
-                  <h4 class="mb-2">
-                    Assessing vulnerabilities to disaster displacement: a good
-                    practice review
-                  </h4>
-                  <p class="mb-2 text-gray-700">
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description
-                  </p>
-                  <p class="mb-2 text-gray-500">
-                    December 2021 • Publication • Sam Barrett, Dave Steinbach,
-                    Simon Addison
-                  </p>
-                </div>
-              </div>
-            </a>
-            <!-- / pub card -->
-
-            <!-- Blog card -->
-            <a href="#" class="hover:no-underline">
-              <div
-                class="flex h-full overflow-hidden bg-white border-b border-gray-300 grow hover:bg-gray-100"
-              >
-                <div class="w-3/12 p-2">
-                  <img
-                    class="object-cover h-auto rounded"
-                    src="https://www.iied.org/sites/default/files/styles/main-image-16-9/public/images/2022/07/13/6468600117_ff4643bb1b_c.jpg"
-                    alt="blog"
-                  />
-                </div>
-
-                <div class="flex flex-col justify-between w-9/12 p-2">
-                  <h4 class="mb-2">This is Blog card title</h4>
-                  <p class="mb-2 text-gray-700">
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description
-                  </p>
-                  <p class="mb-2 text-gray-500">
-                    July 2022 • Blog • Minnie Degawan and Ebony Holland
-                  </p>
-                </div>
-              </div>
-            </a>
-            <!-- / blog card -->
-
-            <!-- standard card -->
-            <a href="#" class="hover:no-underline">
-              <div
-                class="flex h-full overflow-hidden bg-white border-b border-gray-300 grow hover:bg-gray-100"
-              >
-                <div class="w-3/12 p-2">
-                  <img
-                    class="object-cover h-auto rounded"
-                    src="https://source.unsplash.com/random/685x459?vegan"
-                    alt="Vegan"
-                  />
-                </div>
-
-                <div class="flex flex-col justify-between w-9/12 p-2">
-                  <h4 class="mb-2">This is a card title</h4>
-                  <p class="mb-2 text-gray-700">
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description
-                  </p>
-                  <p class="mb-2 text-gray-500">
-                    date (published or event date) • type
-                  </p>
-                </div>
-              </div>
-            </a>
-            <!-- / standard card -->
-
-            <!-- Theme or collection card -->
-            <a href="#" class="hover:no-underline">
-              <div
-                class="flex h-full overflow-hidden bg-white border-b border-gray-300 grow hover:bg-gray-100"
-              >
-                <div class="w-3/12 p-2">
-                  <img
-                    class="object-cover h-auto rounded"
-                    src="https://source.unsplash.com/random/685x459?vegan"
-                    alt="Vegan"
-                  />
-                </div>
-
-                <div class="flex flex-col justify-between w-9/12 p-2">
-                  <h4 class="mb-2">Theme or collection</h4>
-                  <p class="mb-2 text-gray-700">
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description Description
-                    Description Description Description Description
-                  </p>
-                  <p class="mb-2 text-gray-500">type</p>
-                </div>
-              </div>
-            </a>
-            <!-- / Theme or collection card -->
-
-            <!-- Person card -->
-            <a href="#" class="hover:no-underline">
-              <div
-                class="flex h-full overflow-hidden bg-white border-b border-gray-300 grow hover:bg-gray-100"
-              >
-                <div class="w-3/12 p-4">
-                  <img
-                    class="object-cover h-auto rounded-full"
-                    src="https://source.unsplash.com/random/459x459?person"
-                    alt="Vegan"
-                  />
-                </div>
-
-                <div class="flex flex-col justify-between w-9/12 p-2">
-                  <h4 class="mb-2">Person card</h4>
-                  <p class="mb-2 text-gray-700">Title / Description ...</p>
-                  <p class="mb-2 text-gray-500">type</p>
-                </div>
-              </div>
-            </a>
-            <!-- / Person card -->
-          </div>
+        <div class="align-baseline xl:col-span-8">
+          <p class="mb-6 text-lg">
+            We regularly publish a range of email newsletters containing updates
+            on our latest research and activities, including new publications,
+            on a variety of subjects. Yawn.transition
+          </p>
         </div>
       </div>
-    </main>
+    </section>
+
+    <section class="container px-8 py-6 mx-auto">
+      <div
+        class="grid gap-6 bg-gray-100 xl:gap-10 lg:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2"
+      >
+        <!-- card odd -->
+        <div class="flex flex-col">
+          <div
+            class="overflow-hidden transition bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                class="w-full"
+                src="https://source.unsplash.com/random/400x225?vegan"
+                alt="vegan food"
+              />
+              <div
+                class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-base bg-iiedblue-500 rounded-tr-xl"
+              >
+                Blog
+              </div>
+
+              <svg
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute right-0 w-3 h-3 bottom-3 fill-white"
+              >
+                <path
+                  id="corner-tr"
+                  data-name="corner-r"
+                  d="M0,12A12,12,0,0,0,12,0V12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="relative z-20 flex flex-col justify-between p-4 -mt-3 bg-white rounded-tl-xl"
+            >
+              <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                Card title odd
+              </h2>
+              <p class="text-base text-gray-500">date</p>
+            </div>
+          </div>
+        </div>
+        <!-- end card odd -->
+        <!-- end card even -->
+        <div class="flex flex-col">
+          <div
+            class="overflow-hidden transition bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                class="w-full"
+                src="https://source.unsplash.com/random/400x225?plant-based"
+                alt="vegan food"
+              />
+              <div
+                class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-base bg-iiedblue-500 rounded-tr-xl"
+              >
+                Blog
+              </div>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute left-0 z-20 w-3 h-3 bottom-3 fill-white"
+              >
+                <path
+                  id="corner-l"
+                  data-name="corner-l"
+                  d="M12,12A12,12,0,0,1,0,0V12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="relative z-20 flex flex-col justify-between p-4 -mt-3 bg-white rounded-tr-xl"
+            >
+              <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                Card title even
+              </h2>
+              <p class="text-base text-gray-500">date</p>
+            </div>
+          </div>
+        </div>
+        <!-- end card even -->
+        <!-- card odd -->
+        <div class="flex flex-col">
+          <div
+            class="overflow-hidden transition bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                class="w-full"
+                src="https://source.unsplash.com/random/400x225?vegan"
+                alt="vegan food"
+              />
+              <div
+                class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-base bg-iiedblue-500 rounded-tr-xl"
+              >
+                Blog
+              </div>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute right-0 w-3 h-3 bottom-3 fill-white"
+              >
+                <path
+                  id="corner-tr"
+                  data-name="corner-r"
+                  d="M0,12A12,12,0,0,0,12,0V12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="relative z-20 flex flex-col justify-between p-4 -mt-3 bg-white rounded-tl-xl"
+            >
+              <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                Card title odd
+              </h2>
+              <p class="text-base text-gray-500">date</p>
+            </div>
+          </div>
+        </div>
+        <!-- end card odd -->
+        <!-- end card even -->
+        <div class="flex flex-col">
+          <div
+            class="overflow-hidden transition bg-white border border-gray-300 rounded-xl hover:shadow-lg"
+          >
+            <div class="relative">
+              <img
+                class="w-full"
+                src="https://source.unsplash.com/random/400x225?plant-based"
+                alt="vegan food"
+              />
+              <div
+                class="absolute bottom-0 left-0 z-10 px-4 pt-2 pb-5 text-base bg-iiedblue-500 rounded-tr-xl"
+              >
+                Blog
+              </div>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute left-0 z-20 w-3 h-3 bottom-3 fill-white"
+              >
+                <path
+                  id="corner-l"
+                  data-name="corner-l"
+                  d="M12,12A12,12,0,0,1,0,0V12Z"
+                />
+              </svg>
+            </div>
+
+            <div
+              class="relative z-20 flex flex-col justify-between p-4 -mt-3 bg-white rounded-tr-xl"
+            >
+              <h2 class="mb-4 text-lg text-gray-900 truncate title-font">
+                Card title even
+              </h2>
+              <p class="text-base text-gray-500">date</p>
+            </div>
+          </div>
+        </div>
+        <!-- end card even -->
+      </div>
+    </section>
   </body>
 </html>

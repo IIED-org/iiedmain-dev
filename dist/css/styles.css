@@ -3325,6 +3325,10 @@ select {
 .last\:pr-8:last-child {
   padding-right: 2rem;
 }
+.visited\:text-gray-800:visited {
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
+}
 .hover\:-rotate-2:hover {
   --tw-rotate: -2deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3877,6 +3881,9 @@ select {
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
   .md\:col-start-2 {
     grid-column-start: 2;
   }
@@ -4415,20 +4422,20 @@ select {
   .lg\:order-2 {
     order: 2;
   }
-  .lg\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
   .lg\:col-span-1 {
     grid-column: span 1 / span 1;
-  }
-  .lg\:col-span-4 {
-    grid-column: span 4 / span 4;
   }
   .lg\:col-span-12 {
     grid-column: span 12 / span 12;
   }
   .lg\:col-span-6 {
     grid-column: span 6 / span 6;
+  }
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
   }
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
