@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pubs page | templates</title>
+    <title>About page | templates</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
     <script
-    defer
-    src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
-  ></script>
+      defer
+      src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
+    ></script>
   </head>
   <body class="debug-screens">
     <header class="text-gray-600 bg-white body-font">
@@ -299,55 +299,119 @@
         </div>
       </div>
     </header>
-    
-    
-    <!-- pagd  -->
-    
-    <div class="attributes">
-    <div class="container items-baseline p-4 mx-auto overflow-hidden lg:grid lg:gap-x-6 lg:grid-cols-12">
-      <div class="lg:col-span-4">
 
-        <h1 class="mb-6">page {{ name }}</h1>
-   
-      </div>
-      <div class="lg:col-span-8">
-        <p class="prose prose-lg lg:prose-xl">
-        {{ term.description.0.value|striptags }}
-        </p>
-      </div>
-    </div>
+    <!-- top --->
+    <section class="">
+      <div
+        class="container grid items-center grid-cols-1 gap-12 py-12 overflow-hidden lg:gap-24 md:grid-cols-2"
+      ></div>
+    </section>
 
-<!-- {% if term.field_overview.value is not empty %}
-  {{ attach_library('iied_tw/alpine') }} -->
-  <div class="mb-12 ">
-    <div class="tab-wrapper" 
-      x-data="{ tab: window.location.hash ? window.location.hash.substring(1) : 'inthiscollection' }"
-      x-init="$refs[tab].focus()"
-      id="tab_wrapper"
+    <!-- Partnerships --->
+    <section class="bg-gray-100">
+      <!-- section pointer --->
+      <div class="relative flex items-center justify-center overflow-visible">
+        <svg
+          width="49"
+          height="25"
+          viewBox="0 0 49 25"
+          class="absolute -top-px fill-white"
+        >
+          <path
+            d="M.5,.5h0C13.75,.5,24.5,11.25,24.5,24.5h0C24.5,11.25,35.25,.5,48.5,.5h0"
+          />
+        </svg>
+      </div>
+      <!-- end section pointer --->
+      <div
+        class="container grid items-center grid-cols-1 gap-12 pt-12 overflow-hidden lg:gap-24 md:grid-cols-2"
       >
-      <nav class="container flex flex-row border-b border-gray-300">
-          <a x-ref="inthiscollection" class="block px-6 py-2 text-lg font-semibold text-gray-700 border-b-2 focus:border-iiedblue-500 hover:text-gray-900 focus:outline-none" :class="{ 'active': tab === 'inthiscollection' }" @click.prevent="tab = 'inthiscollection'; window.location.hash = 'inthiscollection'" href="#">In this collection</a>
-          <a x-ref="overview" class="block px-6 py-2 text-lg font-semibold text-gray-700 border-b-2 focus:border-iiedblue-500 hover:text-gray-900 focus:outline-none" :class="{ 'active': tab === 'overview' }" @click.prevent="tab = 'overview'; window.location.hash = 'overview'" href="#">Overview</a>
-      </nav>
-        <div class="pt-6 tab-panel" x-show="tab === 'inthiscollection'" x-transition:enter.duration.750ms>
-          <div class="container content">
-            {{ content|without('field_overview') }}
-          </div>
+        <div class="mb-4">
+          <h1 class="max-w-screen-md mb-4">Our experts</h1>
+
+          <p class="mb-4 md:text-lg">
+            Alongside over 350 partners in more than 60 countries, we generate
+            evidence and build capacity in order to drive change in policy and
+            practice.
+          </p>
+
+          <a href="#" class="flex items-center mb-4 space-x-2"
+            ><span>Find out more about our approach</span>
+            <span class="inline-block p-2 border border-gray-300 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg> </span
+          ></a>
         </div>
-        <div class="pt-6 tab-panel" x-show="tab === 'overview'" x-transition:enter.duration.750ms>
-           <div class="container content">
-              {{ term.field_overview.value|raw }}
-          </div>
+        <div class="self-end">
+          <!-- align image to bottom-->
+          <img
+            class="object-cover rounded-t-3xl"
+            src="/dist/images/iied-people.jpg"
+            alt="folk"
+          />
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-  <div class="container content">
-      {{ content }}
-  </div>
+    <!-- Impact --->
+    <section
+      class="bg-gradient-to-r from-iiedpink-900 to-iiedpink-700 via-iiedpink-800"
+    >
+      <div
+        class="container grid items-center grid-cols-1 gap-12 mb-6 overflow-hidden lg:gap-24 md:grid-cols-2"
+      >
+        <div>
+          <img
+            src="https://iied-main-stage.ac.iied.org/sites/default/files/2022-08/impact.jpg"
+            alt="Impact"
+          />
+        </div>
+        <div class="mb-4">
+          <h2 class="mb-4 text-white">Impact</h2>
+          <div class="mb-6 prose prose-lg text-white">
+            <p>
+              We have a track record in finding solutions and testing practical
+              approaches that deliver sustainable change. With partners, we put
+              our insights into action. We scale them up. And we do it all to
+              budget.
+            </p>
+          </div>
+          <a
+            href="/impact"
+            class="flex items-center mb-4 space-x-2 text-lg text-white hover:text-white focus:text-white visited:text-white"
+            ><span>Achieving impact at scale</span>
+            <span class="inline-block p-2 border border-gray-300 rounded-full">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg> </span
+          ></a>
+        </div>
+      </div>
+    </section>
 
-
+    <div class="h-48"></div>
   </body>
 </html>
