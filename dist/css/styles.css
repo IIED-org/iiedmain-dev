@@ -1748,11 +1748,11 @@ select {
 .order-1 {
   order: 1;
 }
-.order-first {
-  order: -9999;
-}
 .order-2 {
   order: 2;
+}
+.order-first {
+  order: -9999;
 }
 .col-span-1 {
   grid-column: span 1 / span 1;
@@ -1765,9 +1765,6 @@ select {
 }
 .col-span-4 {
   grid-column: span 4 / span 4;
-}
-.col-span-6 {
-  grid-column: span 6 / span 6;
 }
 .col-start-1 {
   grid-column-start: 1;
@@ -2200,18 +2197,6 @@ select {
 .w-4\/6 {
   width: 66.666667%;
 }
-.w-96 {
-  width: 24rem;
-}
-.w-7\/12 {
-  width: 58.333333%;
-}
-.w-5\/12 {
-  width: 41.666667%;
-}
-.w-2\/3 {
-  width: 66.666667%;
-}
 .max-w-xs {
   max-width: 20rem;
 }
@@ -2371,9 +2356,6 @@ select {
 }
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-.grid-cols-12 {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 .flex-row {
   flex-direction: row;
@@ -2862,6 +2844,9 @@ select {
 }
 .fill-iiedblue-500 {
   fill: #00b3df;
+}
+.stroke-gray-300 {
+  stroke: #d1d5db;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -3553,6 +3538,10 @@ select {
 
 .hover\:bg-gradient-to-t:hover {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.hover\:stroke-gray-400:hover {
+  stroke: #9ca3af;
 }
 
 .hover\:font-bold:hover {
@@ -4767,12 +4756,6 @@ select {
   .lg\:mt-8 {
     margin-top: 2rem;
   }
-  .lg\:mr-6 {
-    margin-right: 1.5rem;
-  }
-  .lg\:ml-6 {
-    margin-left: 1.5rem;
-  }
   .lg\:block {
     display: block;
   }
@@ -4866,6 +4849,9 @@ select {
   .lg\:gap-24 {
     gap: 6rem;
   }
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
   .lg\:gap-x-24 {
     -moz-column-gap: 6rem;
          column-gap: 6rem;
@@ -4873,11 +4859,6 @@ select {
   .lg\:gap-x-6 {
     -moz-column-gap: 1.5rem;
          column-gap: 1.5rem;
-  }
-  .lg\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
   .lg\:space-x-12 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
