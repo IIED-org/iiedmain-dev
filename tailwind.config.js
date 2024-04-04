@@ -19,6 +19,7 @@ module.exports = {
       },
       colors: {
         iiedblue: {
+          "10": "#E0F6FB",
           "50": "#32e5ff",
           "100": "#28dbff",
           "200": "#1ed1fd",
