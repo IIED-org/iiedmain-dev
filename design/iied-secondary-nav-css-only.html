@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js"></script>
+  </head>
+  <body
+    x-data="{scrolledFromTop: false}"
+    x-init="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
+    @scroll.window="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
+    class="debug-screens"
+  >
+    <header>
+    <!-- Secondary nav  -->
+      <div class="px-4">
+        <div class="relative my-24">
+
+        <!-- menu items -->
+          <ul
+            class="flex flex-row items-center justify-start space-x-4 overflow-x-scroll whitespace-no-wrap snap-x snap-mandatory no-scrollbar flex-nowrap"
+          >
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Urban</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Climate change</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Biodiversity</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Natural resource management</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Food and agriculture</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Sustainable markets</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Policy and planning</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Forests</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Governance</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Economics</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Poverty</a
+              >
+            </li>
+            <li class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:no-underline"
+                >Monitoring, evaluation and learning</a
+              >
+            </li>
+          </ul>
+
+   
+          <!-- button to scroll left -->
+          <div class="absolute top-0 left-0 flex justify-start w-20 h-full pointer-events-none bg-gradient-to-r from-white via-white to-transparent"> 
+            <div class="pointer-events-auto">
+              <button class="relative flex items-center justify-center w-10 h-10 transition-colors ease-out bg-transparent rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none">
+                <span class="flex items-center justify-center gap-x-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><title>arrow left icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                  </svg>
+                 </span>
+              </button>
+           </div>  
+          </div>
+
+
+          <!-- button to scroll right -->
+          <div class="absolute top-0 right-0 flex justify-end w-20 h-full pointer-events-none bg-gradient-to-l from-white via-white to-transparent">
+            <div class="pointer-events-auto">
+              <button class="relative flex items-center justify-center w-10 h-10 transition-colors ease-out bg-transparent rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none">
+                <span class="flex items-center justify-center gap-x-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><title>arrow right icon</title>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>  
+    </header>
+
+
+
+
+    <div class="container min-h-screen mx-auto bg-gray-100 rounded-xl"></div>
+  </body>
+</html>

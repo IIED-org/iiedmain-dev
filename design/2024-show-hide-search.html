@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js"></script>
+  </head>
+  <body
+    x-data="{scrolledFromTop: false}"
+    x-init="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
+    @scroll.window="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
+    class="debug-screens"
+  >
+ 
+  <header x-data="{ showSearch: false }" class="text-gray-600 bg-white body-font" x-cloak>
+    <div class="border-b border-gray-300">
+      <div class="container flex flex-row items-end justify-between w-full">
+  
+        <div id="buttons" class="flex items-center">
+          <!-- Search button -->
+          <button @click.prevent="showSearch = !showSearch; $nextTick(() => {if(showSearch) {$refs.searchInput.focus();}})" 
+                  :aria-expanded="showSearch.toString()"
+                  aria-controls="searchbox"
+                  class="focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+          </button>
+        </div>    
+      </div>
+    </div>
+  
+    <!-- Search Box with x-collapse for smoother transitions -->
+    <div x-show="showSearch" x-collapse @click.away="showSearch = false" @keydown.escape.window="showSearch = false"
+         id="searchbox"
+         class="py-8 transition-all duration-300 ease-in-out transform bg-gray-50" x-ref="searchBox">
+      <div class="container">
+        <div class="lg:flex lg:space-x-12">
+          <div class="lg:w-1/4">
+            <h1 class="my-4 text-2xl xl:text-3xl">Search IIED</h1> 
+          </div>
+        
+          <div class="search-page lg:w-3/4">
+            <div class="relative pt-2">
+              <input placeholder="Search" 
+                     class="w-full max-w-screen-sm px-5 text-base bg-white border border-gray-300 rounded-full h-14 focus:outline-none"
+                     type="text" 
+                     x-ref="searchInput" 
+                     @keydown.escape="showSearch = false"
+                     aria-label="Search input">
+  
+              <button type="submit" class="absolute inset-y-0 flex items-center right-4 pe-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-800">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+                  </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  
+  
+
+
+
+
+
+
+  </body>
+</html>

@@ -6,11 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+      function easeInOutQuad(t) {
+          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+      
+      function smoothScroll(element, endX, duration) {
+          let startX = element.scrollLeft,
+              change = endX - startX,
+              currentTime = 0,
+              increment = 20;
+      
+          const animateScroll = function() {
+              currentTime += increment;
+              let val = easeInOutQuad(currentTime / duration);
+              element.scrollLeft = startX + (change * val);
+              if(currentTime < duration) {
+                  setTimeout(animateScroll, increment);
+              }
+          };
+          animateScroll();
+      }
+      
+      document.addEventListener('alpine:init', () => {
+          Alpine.data('scroll', () => ({
+              scrollByPage(element, direction) {
+                  const containerWidth = element.offsetWidth;
+                  const currentScroll = element.scrollLeft;
+                  const targetScroll = direction === 'left' ? currentScroll - containerWidth : currentScroll + containerWidth;
+                  smoothScroll(element, targetScroll, 1000); // Scroll duration: 600ms
+              }
+          }));
+      });
+      </script>
+
   </head>
   <body
     x-data="{scrolledFromTop: false}"
@@ -18,10 +49,10 @@
     @scroll.window="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
     class="debug-screens"
   >
-    <header class="text-gray-600 bg-white body-font">
+    <header x-data="{ showSearch: false }" class="text-gray-600 bg-white body-font" x-cloak>
       <div class="border-b border-gray-300">
         <div class="container flex flex-row items-end justify-between w-full">
-          
+          <!-- logo -->
           <div id="logo" class="my-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -269,6 +300,7 @@
                 </g>
               </svg>
           </div>
+          <!-- nav -->
           <div id="nav">
             <nav role="navigation" aria-labelledby="block-primary-menu" id="block-primary" class="items-end hidden contextual-region nav primary lg:flex">
               <ul class="flex content-end justify-center md:mr-auto md:ml-4 md:pl-4 whitespace-nowrap">
@@ -288,10 +320,17 @@
             </nav>
           </div>
           <div id="buttons" class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
 
+            <!-- search button -->
+              <button @click.prevent="showSearch = !showSearch; $nextTick(() => {if(showSearch) {$refs.searchInput.focus();}})" 
+                :aria-expanded="showSearch.toString()"
+                aria-controls="searchbox"
+                class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              </button> 
+            
             <!-- donate -->
             <button class="h-10 px-4 mx-2 transition-colors duration-150 rounded-full shadow-sm hover:shadow-none bg-iiedblue-500 hover:bg-iiedblue-600 focus:shadow-outline">
               <a class="text-gray-900 visited:text-gray-900 hover:no-underline" id="donate" href="/" title="Donate">Donate</a>
@@ -317,6 +356,7 @@
 
       </div>
 
+      <!-- Secondary nav  -->
         <div class="relative">
 
           <!-- Left scroll button hidden   -->
@@ -326,8 +366,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
               </svg>
             </button>
-        </div>
-
+          </div>
 
           <ul
             class="flex flex-row items-center justify-start w-screen px-4 py-2 space-x-4 overflow-x-scroll whitespace-no-wrap snap-x snap-mandatory no-scrollbar flex-nowrap"
@@ -433,9 +472,47 @@
 
         </div>
      
+        
+
+          <!-- Search box with transition/close -->
+            <div x-show="showSearch" x-collapse @click.away="showSearch = false" @keydown.escape.window="showSearch = false"
+            id="searchbox"
+            class="transition-all duration-300 ease-in-out transform" x-ref="searchBox">
+            <!-- Search box -->
+              <div x-show="showSearch" class="py-8 bg-gray-100">
+                <div class="container">
+                  <div class="lg:flex lg:space-x-12">
+                    <div class="lg:w-1/4">
+                      <h1 class="my-4 text-2xl xl:text-3xl">Search IIED</h1> 
+                    </div>
+                  
+                    <div class="search-page lg:w-3/4">
+                      <div class="pt-2">
+                        <label class="relative text-gray-500">
+                          <input placeholder="Search" class="w-full max-w-screen-sm px-5 text-base bg-white border border-gray-300 rounded-full h-14 focus:outline-none" type="text" size="30" maxlength="128">
+
+                          <button type="submit" class="absolute inset-y-0 flex items-center right-4 pe-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-800">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+                              </svg>
+                          </button>
+                      
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          
+          </div>
     </header>
 
 
+
+
+
+<!-- standard page example -->
 
     <div class="my-6">
       <div class="container mx-auto lg:px-8 xl:grid xl:gap-6 md:max-w-3xl xl:max-w-screen-xl 2xl:max-w-screen-2xl xl:grid-cols-12 2xl:grid-cols-12">
