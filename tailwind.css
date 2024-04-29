@@ -171,4 +171,9 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+
+    /* image clipping */
+    .image-clipped {
+      clip-path: url(#svgPath);
+    }
 }

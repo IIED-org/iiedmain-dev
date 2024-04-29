@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="539.858" height="444.161" viewBox="0 0 539.858 444.161" class="clip-svg">
+  <defs>
+    <clipPath id="shape">
+     <path fill="none" id="shape" d="M538.858,349.526A27.562,27.562,0,0,1,511.3,321.964L511.153,186.4a27.56,27.56,0,0,0-27.562-27.56H403.542V31.682A30.683,30.683,0,0,0,372.86,1H62.525A30.684,30.684,0,0,0,31.843,31.678L31.682,182.6v0A30.682,30.682,0,0,1,1,213.285l30.843-.464H177.265V303.87h-91.7A20.133,20.133,0,0,0,65.432,324l-.1,99.028A20.133,20.133,0,0,1,45.2,443.161l20.237-.3H278.649a30.682,30.682,0,0,0,30.678-30.684V349.109H511.154Z" 
+       stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </clipPath>
+  </defs>
+    <image width="539" height="446" clip-path="url(#shape)"  xlink:href="/Users/nick/Sites/iiedmain-dev/dist/images/donate-image.jpg" >
+    </image>
+</svg>
+
+
+
