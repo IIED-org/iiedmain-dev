@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navbar</title>
     <link rel="stylesheet" href="/dist/css/styles.css" />
-     <script
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script
       defer
       src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
     ></script>
@@ -26,7 +27,7 @@
         <div id="buttons" class="flex items-center">
           <!-- Search button -->
 
-    
+
           
           <button @click.prevent="showSearch = !showSearch; $nextTick(() => $refs.searchInput.focus())" 
                   :aria-expanded="showSearch.toString()"
@@ -41,7 +42,7 @@
     </div>
   
     <!-- Search Box with x-collapse for smoother transitions -->
-    <div x-show="showSearch" x-collapse @click.away="showSearch = false" @keydown.escape.window="showSearch = false"
+    <div x-show="showSearch" x-collapse x-trap="showSearch" @click.away="showSearch = false" @keydown.escape.window="showSearch = false"
          id="searchbox"
          class="py-8 transition-all duration-300 ease-in-out transform bg-gray-50" x-ref="searchBox">
       <div class="container">

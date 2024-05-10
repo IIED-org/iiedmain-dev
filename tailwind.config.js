@@ -71,7 +71,11 @@ module.exports = {
           "text": "#1173B3",
           "hover": "#0E6196",
           "visited": "#51758B"
+        },
+        secondary: {
+          "05AA76": "#05AA76"
         }
+
       }, 
       content: {
         'video': 'url("/dist/images/video.svg")',
