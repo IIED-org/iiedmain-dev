@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+
+  </head>
+  <body class="debug-screens">
+    <header class="text-gray-600 bg-white body-font">
+      <nav x-data="{ isOpen: false }" 
+        @click.away="isOpen = false"
+        @keydown.escape.window="isOpen = false"
+        role="navigation"
+        aria-label="Main navigation">
+        <div class="border-b border-iiedblue-100">
+          <div class="container flex flex-row items-end justify-between w-full">
+            <!-- logo -->
+            
+            <div id="logo" class="flex my-2 group">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="73"
+              height="44"
+              viewBox="0 0 73 44"
+            >
+              <path fill="#00a2d8" class="fill-iiedblue-500 group-hover:fill-iiedblue-700" d="M68.08,27.98c.02.61-1.68,4.22-4.82,5.11-1.66.47-4.23.5-8.65.5-2.37,0-8.34-.05-12.76,0-5.69.06-7.38,4.56-7.8,6.43-.42-1.87-2.12-6.37-7.81-6.43-4.42-.05-10.39,0-12.76,0-4.42,0-6.99-.03-8.65-.5C1.69,32.19,0,28.59.02,27.98c-.23,7.18,2.19,10.29,9.05,10.57h18.48c3.04-.04,5.64,2.7,6.5,5.47.86-2.77,3.46-5.51,6.49-5.47h18.48c6.86-.28,9.29-3.39,9.05-10.57Z"/>
+              <path d="M6.17,3.37c-.1-1.28.86-2.39,2.14-2.49,0,0,.01,0,.02,0h.16c1.24-.05,2.28.92,2.33,2.16,0,0,0,0,0,0,0,.08,0,.17,0,.25.04,1.28-.96,2.36-2.24,2.4,0,0,0,0,0,0h-.08c-1.24.04-2.28-.92-2.32-2.16h0v-.16M3.93,27.1c2.32,0,2.96-.4,2.96-1.36v-12.58c0-1.2-.56-2-2.89-2v-1.29l6.25-.16v16.03c0,.96.56,1.36,2.97,1.36v1.28H3.93v-1.28Z"/>
+              <path d="M17.55,3.37c-.09-1.28.87-2.4,2.15-2.49,0,0,0,0,0,0h.17c1.24-.05,2.28.92,2.33,2.16h0v.25c.05,1.28-.96,2.36-2.24,2.4,0,0,0,0,0,0h-.09c-1.24.05-2.28-.92-2.33-2.16h0v-.16M15.31,27.1c2.33,0,2.96-.4,2.96-1.36v-12.58c0-1.2-.56-2-2.96-2v-1.29l6.34-.16v16.03c0,.96.56,1.36,2.96,1.36v1.28h-9.3v-1.27Z"/>
+              <path d="M29.33,17.32l8.74-.16c.4-3.45-1.11-6.41-4.02-6.41s-4.41,1.92-4.73,6.57M25.63,19.24c0-5.54,3.43-9.77,8.66-9.77s7.77,4.65,7.37,9.06h-12.32v.24h0c0,4.49,2.16,7.7,6.17,7.7,2.24,0,4.09-1.44,5.69-3.45l.79.79c-1.52,2.48-3.61,4.81-7.7,4.81-5.61,0-8.66-4.09-8.66-9.46"/>
+              <path d="M57.71,25.01v-11.94c-.84-1.5-2.45-2.39-4.17-2.32-2.89,0-5.37,2.96-5.37,8.42s2.09,7.61,5.69,7.61c1.46-.07,2.84-.7,3.85-1.76M44.4,19.4c0-5.61,3.53-9.94,8.98-9.94,1.52-.06,3.03.33,4.33,1.12v-6.41c0-1.2-.72-1.92-3.13-2V.88l6.57-.16v25.01c0,.96.56,1.36,2.89,1.44v1.2l-6.25.16v-2.16c-1.4,1.52-3.38,2.37-5.45,2.33-4.97,0-7.94-4.09-7.94-9.3"/>
+            </svg>
+            <svg 
+              id="Layer_1" 
+              xmlns="http://www.w3.org/2000/svg" 
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="127"
+              height="44"
+              viewBox="0 0 127 44"
+              class="hidden sm:block"
+            >
+              <path d="M1.08,9.6c1.17-.04,1.45-.17,1.45-.6V1.94c0-.43-.28-.56-1.45-.6v-.44h4.21v.44c-1.17.04-1.45.17-1.45.6v7.06c0,.43.28.56,1.45.6v.44H1.08v-.45Z"/>
+              <path d="M6.14,9.62c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.19.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M14.74,8.42v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.02v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.52.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+              <path d="M18.42,6.92c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.46.04,2.62,1.25,2.59,2.71,0,.13-.02.27-.04.4h-4.27v.11c0,1.53.77,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.51,1.66-2.64,1.66-1.95,0-2.98-1.4-2.98-3.24M19.69,6.25l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M24.56,9.62c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v1.09c.42-.63,1.1-1.05,1.85-1.13.52-.05.98.34,1.03.86,0,.03,0,.07,0,.1.03.41-.27.76-.68.79-.02,0-.03,0-.05,0-.38.04-.73-.25-.76-.63,0-.03,0-.06,0-.09,0-.08.01-.16.03-.24-.57.01-1.09.32-1.39.81v3.94c0,.33.25.47,1.17.49v.43h-3.35v-.43Z"/>
+              <path d="M30.01,9.62c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.19.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M37.75,8.67c0-.6.32-1.16.85-1.45.95-.39,1.93-.71,2.92-.97v-.4c0-1.39-.39-1.82-1.29-1.82-.35-.02-.7.11-.95.36.1.2.16.43.17.65.03.39-.26.72-.65.75-.03,0-.06,0-.09,0-.39,0-.7-.31-.7-.7,0-.02,0-.04,0-.05,0-.81,1.07-1.45,2.41-1.45,1.45,0,2.27.65,2.27,1.99v3.18c0,.68.15.85,1.07.74l.06.33c-.41.17-.85.26-1.29.26-.74,0-.86-.32-.95-1.07h-.05c-.51.65-1.27,1.05-2.09,1.1-.81.11-1.55-.45-1.67-1.26,0-.07-.01-.14-.01-.2M41.52,8.54v-1.83c-2,.43-2.46.72-2.46,1.64-.05.53.34.99.86,1.04.06,0,.13,0,.19,0,.58-.06,1.1-.38,1.42-.86"/>
+              <path d="M44.72,8.42v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.02v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.51.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+              <path d="M48.53,9.62c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.2-.67-1-.68v-.43l2.17-.06v5.49c0,.33.2.47,1.02.49v.43h-3.2v-.43ZM49.31,1.24c-.03-.43.29-.81.73-.85.02,0,.04,0,.07,0,.42-.02.78.32.79.74,0,.03,0,.06,0,.08.03.43-.29.8-.72.83-.02,0-.05,0-.07,0-.42.02-.77-.3-.79-.71,0-.03,0-.06,0-.09"/>
+              <path d="M52.06,6.88c-.15-1.68,1.1-3.17,2.78-3.31.11,0,.22-.01.34-.01,1.64-.08,3.03,1.19,3.11,2.83,0,.15,0,.29-.01.44.15,1.68-1.09,3.17-2.77,3.32-.11,0-.22.01-.33.01-1.64.09-3.04-1.17-3.13-2.81,0-.16,0-.31.01-.47M56.98,6.85c0-1.95-.77-2.87-1.88-2.87s-1.75.92-1.75,2.87.77,2.88,1.88,2.88,1.75-.93,1.75-2.88"/>
+              <path d="M58.84,9.62c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M66.59,8.67c0-.6.32-1.16.85-1.45.95-.39,1.93-.71,2.92-.97v-.4c0-1.39-.39-1.82-1.29-1.82-.35-.02-.7.11-.95.36.1.2.16.43.17.65.03.39-.26.72-.65.75-.03,0-.06,0-.09,0-.38,0-.69-.31-.7-.69,0-.02,0-.04,0-.06,0-.81,1.07-1.45,2.41-1.45,1.45,0,2.27.65,2.27,1.99v3.18c0,.68.15.85,1.07.74l.06.33c-.41.17-.85.26-1.29.26-.74,0-.86-.32-.95-1.07h-.06c-.5.65-1.26,1.05-2.09,1.1-.81.11-1.55-.45-1.67-1.25,0-.07-.01-.14-.01-.21M70.36,8.54v-1.83c-2,.43-2.46.72-2.46,1.64-.05.53.33.99.86,1.04.06,0,.12,0,.18,0,.58-.06,1.1-.38,1.42-.86"/>
+              <path d="M72.97,9.62c.81-.01,1.01-.15,1.01-.49V1.52c0-.42-.26-.67-1.07-.68v-.43l2.24-.05v8.77c0,.33.19.47,1.01.49v.43h-3.2v-.43Z"/>
+              <path d="M78.37,9.6c1.17-.04,1.45-.17,1.45-.6V1.94c0-.43-.28-.56-1.45-.6v-.44h4.21v.44c-1.17.04-1.45.17-1.45.6v7.06c0,.43.28.56,1.45.6v.44h-4.21v-.45Z"/>
+              <path d="M83.43,9.62c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M91.26,8.03h.4c.62,1.03,1.28,1.7,2.09,1.7.58.05,1.09-.38,1.14-.96,0-.03,0-.06,0-.1,0-.65-.39-.92-1.65-1.31-1.41-.42-1.91-.9-1.91-1.78-.02-1.11.87-2.03,1.98-2.04.09,0,.17,0,.26.01.46.01.92.13,1.32.36l.25-.36h.32v1.89h-.4c-.45-.86-.97-1.46-1.66-1.46-.57-.05-1.06.37-1.11.94,0,.03,0,.07,0,.1,0,.57.47.86,1.59,1.18,1.32.38,1.89.86,1.89,1.81.07,1.12-.78,2.07-1.9,2.14-.09,0-.17,0-.26,0-.56-.02-1.12-.18-1.61-.44l-.42.44h-.32v-2.13Z"/>
+              <path d="M97.31,8.42v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.01v.58h-2.02v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.51.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+              <path d="M101.27,9.62c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.2-.67-1-.68v-.43l2.17-.06v5.49c0,.33.2.47,1.02.49v.43h-3.2v-.43ZM102.05,1.24c-.03-.44.29-.81.73-.85.02,0,.04,0,.06,0,.42-.02.78.32.79.74,0,.03,0,.06,0,.08.03.43-.29.8-.72.83-.02,0-.05,0-.07,0-.42.02-.77-.3-.79-.71,0-.03,0-.06,0-.09"/>
+              <path d="M105.55,8.42v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.01v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.52.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+              <path d="M110.31,8.23v-3.55c0-.43-.22-.53-1.03-.56v-.44l2.2-.07v4.1c0,1.24.49,1.57,1.4,1.57.52,0,1.03-.17,1.46-.47v-4.14c0-.43-.26-.53-1.03-.56v-.44l2.2-.07v5.51c0,.35.21.47,1.02.5v.42h-2.16v-.81c-.68.55-1.53.87-2.41.92-1,0-1.66-.68-1.66-1.93"/>
+              <path d="M117.56,8.42v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.02v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.52.93-.99,1.29-1.88,1.29-.93,0-1.49-.57-1.49-1.74"/>
+              <path d="M121.24,6.92c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.46.04,2.62,1.25,2.59,2.71,0,.13-.02.27-.04.4h-4.27v.11c0,1.53.76,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.51,1.66-2.64,1.66-1.95,0-2.98-1.4-2.98-3.24M122.51,6.25l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M.82,23.93c.81-.01,1.03-.15,1.03-.49v-4.83H.67v-.39l1.18-.25v-.26c-.08-.9.21-1.78.81-2.46.4-.42.95-.66,1.53-.67,1.04,0,1.53.51,1.53,1.04.04.36-.23.68-.59.72-.03,0-.05,0-.08,0-.36,0-.75-.24-.75-.88,0-.13.02-.25.04-.38-.11-.05-.23-.08-.35-.08-.22-.01-.43.08-.58.24-.25.25-.39.71-.39,1.79v.96h1.77v.58h-1.77v4.85c0,.33.29.44,1.39.49v.43H.82v-.43Z"/>
+              <path d="M5.06,21.19c-.15-1.68,1.1-3.17,2.78-3.31.11,0,.22-.01.33-.01,1.64-.08,3.03,1.19,3.11,2.83,0,.15,0,.29-.01.44.15,1.68-1.09,3.17-2.77,3.32-.11.01-.22.01-.33.01-1.64.09-3.04-1.17-3.13-2.81,0-.16,0-.31.01-.47M9.98,21.17c0-1.95-.77-2.86-1.88-2.86s-1.75.92-1.75,2.86.76,2.88,1.88,2.88,1.75-.93,1.75-2.88"/>
+              <path d="M11.84,23.93c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v1.08c.42-.63,1.09-1.04,1.84-1.13.52-.05.98.34,1.03.86,0,.03,0,.07,0,.1.03.41-.27.76-.68.79-.02,0-.03,0-.05,0-.38.04-.73-.25-.76-.63,0-.03,0-.06,0-.09,0-.08.01-.16.03-.24-.57.01-1.09.32-1.39.81v3.94c0,.33.25.47,1.17.49v.43h-3.35v-.43Z"/>
+              <path d="M18.71,23.92c1.17-.04,1.45-.17,1.45-.6v-7.06c0-.43-.28-.56-1.45-.6v-.44h7.43l.04,2.56h-.43c-.49-1.54-.74-2.04-2.3-2.04h-1.97v3.63h.82c1.03,0,1.42-.1,1.77-1.54h.38v3.62h-.38c-.35-1.45-.74-1.54-1.77-1.54h-.82v3.95h1.97c1.84,0,2.28-.72,2.77-2.34h.43s-.07,2.86-.07,2.86h-7.87v-.45Z"/>
+              <path d="M27.38,23.93c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M35.29,19.26c-.24-.6-.43-.81-1.07-.88v-.4h3.11v.4c-.67.04-.92.19-.92.44,0,.09.02.18.06.26l1.54,3.92h.06l1.29-3.32c.1-.22.16-.46.18-.7,0-.32-.21-.53-.82-.63v-.39h2.46v.39c-.43.06-.81.4-1.08,1.08l-2.07,4.99h-.65l-2.09-5.18Z"/>
+              <path d="M41.61,23.93c.81-.01,1.02-.15,1.02-.49v-4.33c0-.42-.19-.67-1-.68v-.43l2.17-.06v5.49c0,.33.2.47,1.02.49v.43h-3.2v-.43ZM42.39,15.56c-.03-.44.29-.81.73-.85.02,0,.04,0,.06,0,.42-.02.78.31.79.74,0,.03,0,.06,0,.08.03.43-.29.8-.72.83-.02,0-.05,0-.07,0-.42.02-.77-.3-.79-.72,0-.03,0-.06,0-.09"/>
+              <path d="M45.27,23.93c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.15-.06v1.08c.42-.63,1.1-1.05,1.85-1.13.52-.05.98.34,1.03.86,0,.03,0,.07,0,.1.03.41-.27.76-.68.79-.02,0-.03,0-.05,0-.38.04-.73-.25-.76-.63,0-.03,0-.06,0-.09,0-.08.01-.16.03-.24-.57.01-1.09.32-1.39.81v3.94c0,.33.25.47,1.17.49v.43h-3.35v-.43Z"/>
+              <path d="M50.58,21.19c-.15-1.68,1.1-3.17,2.78-3.31.11,0,.22-.01.34-.01,1.64-.08,3.03,1.19,3.11,2.83,0,.15,0,.29-.01.44.15,1.68-1.09,3.17-2.77,3.32-.11.01-.22.01-.33.01-1.64.09-3.04-1.17-3.13-2.81,0-.16,0-.31.01-.47M55.5,21.17c0-1.95-.77-2.86-1.88-2.86s-1.75.92-1.75,2.86.77,2.88,1.88,2.88,1.75-.93,1.75-2.88"/>
+              <path d="M57.36,23.93c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M69.18,23.93c.7-.01.81-.15.81-.49v-3.09c0-1.24-.5-1.58-1.34-1.58-.53.02-1.04.22-1.43.57v4.1c0,.33.1.47.79.49v.43h-2.98v-.43c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.67-.58,1.51-.93,2.39-1,.71-.01,1.32.49,1.46,1.18.67-.69,1.57-1.11,2.53-1.18.96,0,1.52.68,1.52,1.93v3.6c0,.33.21.47,1.02.49v.43h-2.99v-.43c.7-.01.81-.15.81-.49v-3.09c0-1.24-.45-1.58-1.28-1.58-.57.06-1.11.31-1.52.71.01.19.03.32.03.44v3.52c0,.33.12.47.93.49v.43h-2.91v-.43Z"/>
+              <path d="M76.39,21.23c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.46.04,2.62,1.25,2.59,2.71,0,.13-.02.27-.04.4h-4.27v.11c0,1.53.76,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.52,1.66-2.64,1.65-1.95,0-2.97-1.4-2.97-3.24M77.66,20.57l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M82.68,23.93c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.06v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M91.13,22.74v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.02v3.99c0,.77.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.52.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+              <path d="M1,37.3c0-.6.32-1.16.85-1.45.95-.39,1.93-.71,2.92-.97v-.4c0-1.39-.39-1.82-1.29-1.82-.35-.02-.7.11-.95.36.1.2.16.43.17.65.03.39-.26.72-.65.75-.03,0-.06,0-.09,0-.38,0-.7-.3-.7-.69,0-.02,0-.04,0-.07,0-.81,1.07-1.45,2.41-1.45,1.45,0,2.27.65,2.27,1.99v3.18c0,.68.15.85,1.07.74l.05.33c-.41.17-.85.26-1.29.26-.74,0-.86-.32-.95-1.07h-.05c-.5.65-1.26,1.05-2.09,1.1-.81.11-1.55-.45-1.67-1.26,0-.07-.01-.14-.01-.2M4.77,37.17v-1.82c-2,.43-2.46.72-2.46,1.64-.05.53.34.99.86,1.04.06,0,.12,0,.18,0,.58-.06,1.1-.38,1.42-.86"/>
+              <path d="M7.48,38.25c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.05v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M14.88,35.59c-.15-1.72,1.12-3.24,2.84-3.4.08,0,.16-.01.24-.01.53-.02,1.05.11,1.5.38v-2.41c0-.42-.27-.67-1.07-.68v-.43l2.24-.06v8.78c0,.35.21.47,1.02.5v.42l-2.15.06v-.74c-.49.52-1.18.81-1.89.79-1.71,0-2.73-1.4-2.73-3.2M19.47,37.54v-4.12c-.28-.52-.84-.84-1.43-.81-.99,0-1.86,1.02-1.86,2.91,0,1.49.72,2.6,1.98,2.6.5-.03.97-.24,1.32-.58"/>
+              <path d="M24.21,38.23c1.17-.04,1.45-.17,1.45-.6v-7.07c0-.43-.28-.56-1.45-.6v-.44h3.81c3.42,0,5.08,1.77,5.08,4.39s-1.45,4.76-4.95,4.76h-3.94v-.44ZM28.05,38.18c2.88,0,3.55-1.58,3.55-4.17s-1.21-3.98-3.67-3.98h-.95v8.15h1.07Z"/>
+              <path d="M33.89,35.55c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.46.04,2.62,1.25,2.59,2.71,0,.13-.02.27-.04.4h-4.27v.11c0,1.53.77,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.52,1.66-2.64,1.65-1.95,0-2.98-1.4-2.98-3.24M35.15,34.88l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M40.62,33.58c-.24-.6-.43-.81-1.07-.88v-.4h3.12v.4c-.67.04-.92.2-.92.45,0,.09.02.18.06.26l1.54,3.92h.06l1.29-3.32c.1-.22.16-.45.18-.69,0-.32-.21-.53-.82-.63v-.39h2.46v.39c-.43.06-.81.4-1.08,1.09l-2.07,4.99h-.65l-2.08-5.19Z"/>
+              <path d="M46.45,35.55c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.46.04,2.62,1.25,2.59,2.71,0,.13-.02.27-.04.4h-4.27v.11c0,1.53.76,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.52,1.66-2.64,1.65-1.95,0-2.98-1.4-2.98-3.24M47.71,34.88l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M52.64,38.25c.81-.01,1.02-.15,1.02-.49v-7.61c0-.42-.26-.67-1.07-.68v-.43l2.24-.06v8.78c0,.33.2.47,1.02.49v.43h-3.2v-.43Z"/>
+              <path d="M56.33,35.51c-.15-1.68,1.1-3.17,2.78-3.31.11,0,.22-.01.33-.01,1.64-.08,3.03,1.19,3.11,2.83,0,.15,0,.29-.01.44.15,1.68-1.09,3.17-2.77,3.32-.11.01-.22.01-.33.01-1.64.09-3.04-1.17-3.13-2.81,0-.16,0-.31.01-.47M61.26,35.48c0-1.95-.76-2.87-1.88-2.87s-1.75.92-1.75,2.87.77,2.88,1.88,2.88,1.75-.93,1.75-2.88"/>
+              <path d="M63.04,40.93c.81-.03,1.02-.15,1.02-.5v-7c0-.42-.21-.67-1.02-.68v-.43l2.16-.05v.89c.54-.58,1.29-.93,2.09-.97,1.64,0,2.53,1.28,2.53,3.12s-1.02,3.45-2.81,3.45c-.62,0-1.23-.15-1.78-.45v2.13c0,.35.32.47,1.32.5v.42h-3.5v-.41ZM68.52,35.37c0-1.53-.65-2.52-1.68-2.52-.62.02-1.21.3-1.61.77v3.48c.12.76.81,1.29,1.57,1.22.92,0,1.72-1.02,1.72-2.95"/>
+              <path d="M74.66,38.25c.7-.01.81-.15.81-.49v-3.09c0-1.24-.5-1.59-1.34-1.59-.53.02-1.04.22-1.43.57v4.1c0,.33.1.47.79.49v.43h-2.98v-.43c.81-.01,1.02-.15,1.02-.49v-4.32c0-.42-.21-.67-1.02-.68v-.43l2.16-.05v.96c.67-.58,1.51-.93,2.39-1,.71-.01,1.32.49,1.46,1.18.67-.69,1.57-1.11,2.53-1.18.96,0,1.52.68,1.52,1.93v3.6c0,.33.21.47,1.01.49v.43h-2.99v-.43c.7-.01.81-.15.81-.49v-3.09c0-1.24-.45-1.59-1.28-1.59-.57.06-1.11.31-1.52.71.02.2.03.32.03.45v3.52c0,.33.12.47.93.49v.43h-2.91v-.43Z"/>
+              <path d="M82.02,35.55c-.17-1.68,1.06-3.18,2.74-3.35.08,0,.16-.01.24-.01,1.82,0,2.66,1.59,2.55,3.12h-4.27v.11c0,1.53.76,2.64,2.13,2.64.8-.07,1.52-.51,1.96-1.18l.28.26c-.49,1.02-1.52,1.66-2.64,1.65-1.95,0-2.97-1.4-2.97-3.24M83.29,34.88l2.99-.07c.14-1.18-.38-2.2-1.38-2.2-.85,0-1.5.65-1.61,2.27"/>
+              <path d="M88.31,38.25c.81-.01,1.01-.15,1.01-.49v-4.32c0-.42-.21-.67-1.01-.68v-.43l2.16-.05v.96c.72-.58,1.6-.93,2.52-1,.96,0,1.57.68,1.57,1.93v3.6c0,.33.2.47,1.02.49v.43h-3.07v-.43c.71-.01.89-.15.89-.49v-3.1c0-1.24-.49-1.57-1.32-1.57-.57.02-1.12.22-1.57.57v4.1c0,.33.18.47.88.49v.43h-3.06v-.43Z"/>
+              <path d="M96.9,37.05v-4.12h-1.18v-.39l1.21-.25v-1.78l1.14-.5v2.31h2.02v.58h-2.02v3.99c0,.76.28,1.13.86,1.13.39,0,.7-.29,1.02-.75l.32.22c-.51.93-.99,1.29-1.88,1.29s-1.49-.57-1.49-1.74"/>
+            </svg>
+
+
+            </div>
+
+
+
+
+
+
+            <!-- nav -->
+            <div id="nav">
+              <nav role="navigation" aria-labelledby="block-primary-menu" id="block-primary" class="items-end hidden contextual-region nav primary lg:flex">
+                <ul class="flex content-end justify-center md:mr-auto md:ml-4 md:pl-4 whitespace-nowrap">
+                  <li>
+                    <a href="/" class="block pb-1.5 mr-4 text-gray-900 hover:text-gray-900 font-headline text-lg xl:text-xl hover:border-iiedblue-500 border-b-2 border-white visited:text-gray-900 h-full active:border-iiedblue-500 hover:no-underline">About</a>
+                  </li>
+                  <li>
+                    <a href="/" class="block pb-1.5 mr-4 text-gray-900 hover:text-gray-900 font-headline text-lg xl:text-xl hover:border-iiedblue-500 border-b-2 border-white visited:text-gray-900 h-full active:border-iiedblue-500 hover:no-underline">News and insight</a>
+                  </li>
+                  <li>
+                    <a href="/" class="block pb-1.5 mr-4 text-gray-900 hover:text-gray-900 font-headline text-lg xl:text-xl hover:border-iiedblue-500 border-b-2 border-white visited:text-gray-900 h-full active:border-iiedblue-500 hover:no-underline">Our approach</a>
+                  </li>
+                  <li>
+                    <a href="/" class="block pb-1.5 mr-4 text-gray-900 hover:text-gray-900 font-headline text-lg xl:text-xl hover:border-iiedblue-500 border-b-2 border-white visited:text-gray-900 h-full active:border-iiedblue-500 hover:no-underline">Publications</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div id="buttons" class="flex items-center">
+
+              <!-- search button -->
+                <button @click.prevent="showSearch = !showSearch; $nextTick(() => {if(showSearch) {$refs.searchInput.focus();}})" 
+                  :aria-expanded="showSearch.toString()"
+                  aria-controls="searchbox"
+                  class="focus:outline-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </button> 
+              
+              <!-- donate -->
+              <button class="h-10 px-4 mx-2 transition-colors duration-150 rounded-full shadow-sm hover:shadow-none bg-iiedblue-500 hover:bg-iiedblue-600 focus:shadow-outline">
+                <a class="text-gray-900 visited:text-gray-900 hover:no-underline" id="donate" href="/" title="Donate">Donate</a>
+              </button>
+
+                <!-- menu toggle button -->
+                <div class="flex items-center">
+                  <button @click="isOpen = !isOpen" type="button" class="px-2 py-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-iiedblue-300"
+                          :aria-expanded="isOpen ? 'true' : 'false'"
+                          aria-controls="menu"
+                          aria-label="Toggle menu">
+                      <svg x-show="!isOpen" class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                      <svg x-show="isOpen" class="w-6 h-6 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                  </button>
+                </div>
+              <!-- end menu toggle -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+          <!-- Search box -->
+          <div x-show="showSearch" class="py-8 bg-gray-100">
+            <div class="container">
+              <div class="lg:flex lg:space-x-12">
+                <div class="lg:w-1/4">
+                  <h1 class="my-4 text-2xl xl:text-3xl">Search IIED</h1> 
+                </div>
+              
+                <div class="search-page lg:w-3/4">
+                  <div class="pt-2">
+                    <label class="relative text-gray-500">
+                      <input placeholder="Search" class="w-full max-w-screen-sm px-5 text-base bg-white border border-gray-300 rounded-full h-14 focus:outline-none" type="text" size="30" maxlength="128">
+
+                      <button type="submit" class="absolute inset-y-0 flex items-center right-4 pe-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-800">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
+                          </svg>
+                      </button>
+                  
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Off canvas menu -->
+          <div x-show="isOpen" 
+          x-transition:enter="transition ease-out duration-300 transform"
+          x-transition:enter-start="opacity-0 -translate-y-14"
+          x-transition:enter-end="opacity-100 translate-y-0"
+          x-transition:leave="transition ease-in duration-300 transform"
+          x-transition:leave-start="opacity-100 translate-y-0"
+          x-transition:leave-end="opacity-0 -translate-y-14"
+          @click.stop
+          class="fixed left-0 z-20 h-screen overflow-y-auto transition-transform duration-300 ease-in-out transform inset-y-14 max-w-fit"
+          id="menu"
+          :aria-hidden="isOpen ? 'false' : 'true'"> 
+            <div class="flex flex-col sm:pr-9 sm:flex-row max-w-max bg-gray-50 rounded-r-2xl">
+              <!-- main links -->
+              <div class="py-4 pl-4 pr-14 sm:pr-4 bg-iiedblue-50 rounded-tr-2xl">
+                <div class="pb-4 mb-4 border-b border-gray-300">
+                  <ul class="font-semibold">
+                    <li class="py-2 rounded-full hover:bg-gray-200">
+                      <a href="/" class="px-4 text-gray-900 hover:no-underline">About</a>
+                    </li>
+                  <li class="py-2 rounded-full hover:bg-gray-200">
+                      <a href="/" class="px-4 text-gray-900 hover:no-underline">News and insight</a>
+                    </li>
+                    <li class="py-2 rounded-full hover:bg-gray-200">
+                      <a href="/" class="px-4 text-gray-900 hover:no-underline">Our approach</a>
+                    </li>
+                    <li class="py-2 rounded-full hover:bg-gray-200">
+                      <a href="/" class="px-4 text-gray-900 hover:no-underline">Publications</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="py-4">
+                <a href="/" class="text-gray-900 hover:no-underline">Sign up for our newsletters</a>
+                </div>
+
+                  <!-- Social links -->
+                  <div class="py-4">
+                    <div class="flex items-center">
+                            <a href="/" target="_blank" class="flex items-center justify-center w-10 h-10 mr-2 text-gray-900 border rounded-full border-iiedblue-500 hover:bg-gray-100 hover:border-iiedblue-500" title="Facebook" aria-label="Facebook" rel="noopener" tabindex="-1">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                            <a href="/" target="_blank" class="flex items-center justify-center w-10 h-10 mr-2 text-gray-900 border rounded-full border-iiedblue-500 hover:bg-gray-100 hover:border-iiedblue-500" id="share-twitter" title="Share to Twitter" aria-label="Share to Twitter" rel="noopener" tabindex="-1">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            </svg>
+                        </a>
+                            <a href="/" target="_blank" class="flex items-center justify-center w-10 h-10 mr-2 text-gray-900 border rounded-full border-iiedblue-500 hover:bg-gray-100 hover:border-iiedblue-500" id="share-linkedin" title="Share to Linkedin" aria-label="Share to Linkedin" rel="noopener" tabindex="-1">
+                            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                            </svg>
+                        </a>
+                            <a href="/" aria-label=" e-mail" target="_blank" rel="noopener" tabindex="-1" class="flex items-center justify-center w-10 h-10 mr-2 text-gray-900 border rounded-full border-iiedblue-500 hover:bg-gray-100 hover:border-iiedblue-500" id="share-email">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                <path d="M8.25 4.5a3.75 3.75 0 1 1 7.5 0v8.25a3.75 3.75 0 1 1-7.5 0V4.5Z" />
+                                <path d="M6 10.5a.75.75 0 0 1 .75.75v1.5a5.25 5.25 0 1 0 10.5 0v-1.5a.75.75 0 0 1 1.5 0v1.5a6.751 6.751 0 0 1-6 6.709v2.291h3a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5h3v-2.291a6.751 6.751 0 0 1-6-6.709v-1.5A.75.75 0 0 1 6 10.5Z" />
+                              </svg>
+                            
+                        </a>
+                      </a>
+                      <a href="/" aria-label=" e-mail" target="_blank" rel="noopener" tabindex="-1" class="flex items-center justify-center w-10 h-10 mr-2 text-gray-900 border rounded-full border-iiedblue-500 hover:bg-gray-100 hover:border-iiedblue-500" id="share-email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22.81" height="15.348" viewBox="0 0 22.81 15.348" class="w-5 h-5">
+                          <path id="XMLID_823_" d="M21.921,47.234c-.823-.936-2.344-1.317-5.247-1.317H6.136c-2.97,0-4.516.406-5.336,1.4-.8.971-.8,2.4-.8,4.383v3.776c0,3.838.949,5.786,6.136,5.786H16.674c2.518,0,3.913-.337,4.815-1.163.926-.847,1.32-2.23,1.32-4.623V51.7C22.81,49.614,22.748,48.174,21.921,47.234Zm-7.277,6.878L9.859,56.5a.766.766,0,0,1-.722-.022.7.7,0,0,1-.355-.6V51.113a.7.7,0,0,1,.354-.6.765.765,0,0,1,.721-.023l4.786,2.376a.69.69,0,0,1,0,1.248Z" transform="translate(0 -45.917)"/>
+                        </svg>
+                        
+                      
+                      </a>
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- Secondary links -->
+              <div class="p-4 mb-4 bg-gray-50 rounded-r-2xl">
+                <ul class="lg:grid-cols-2 lg:grid">
+
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Biodiversity</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Climate change</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Communication</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Economics</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Energy</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Fisheries</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Food and agriculture</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Forests</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Gender</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Governance</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Land acquisitions and rights</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-gray-700 hover:no-underline"
+                      >Law</a
+                    >
+                  </li>
+                  <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Monitoring, evaluation and learning</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Natural resource management</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Policy and planning</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Poverty</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Sustainable markets</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Urban</a
+                  >
+                </li>
+                <li class="rounded-full hover:bg-gray-100">
+                  <a
+                    href="#"
+                    class="block px-4 py-2 text-gray-700 hover:no-underline"
+                    >Water</a
+                  >
+                </li>
+          
+                </ul>
+
+              </div>
+
+              <!-- close button -->
+              <button 
+              @click="isOpen = !isOpen" 
+              type="button" 
+              aria-label="Menu close" 
+              aria-expanded="false" 
+              class="absolute self-start p-4 top-1 right-1 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-iiedblue-300"
+              data-pg-collapsed 
+              aria-controls="menu" 
+              x-on:click="mobilemenuopen = !mobilemenuopen" 
+              :aria-expanded="isOpen ? 'true' : 'false'">
+
+                <svg x-show="isOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" data-pg-collapsed>
+                  <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              </button>
+            </div>
+          </div>  
+
+          <!-- Overlay -->
+          <div x-show="isOpen" @click="isOpen = false"
+          x-transition:enter="ease-out duration-300"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="ease-in duration-300"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          class="fixed inset-0 z-10 bg-gray-900 bg-opacity-50"
+          aria-label="Close menu overlay">
+          </div>
+      </nav>
+    </header>
+
+
+
+
+
+      <!-- standard page example -->
+      <div class="my-6">
+        <div class="container mx-auto lg:px-8 xl:grid xl:gap-6 md:max-w-3xl xl:max-w-screen-xl 2xl:max-w-screen-2xl xl:grid-cols-12 2xl:grid-cols-12">
+          <div class="order-1 xl:col-span-7 2xl:col-span-6 xl:col-start-4 md:order-2">
+            <nav aria-label="themes">
+              <div class="mb-4 sm:justify-between sm:flex">
+                <div class="mb-2 sm:order-2"></div>
+                <div class="mb-2">
+          <div class="flex flex-wrap items-center space-x-3">
+                  <div><a href="/">Themes</a></div>
+            
+              </div>
+        </div>
+              </div>
+            </nav>
+            
+            
+            <h1 class="mb-6 text-4xl">Some title</h1>
+            <div class="mb-4 prose prose-lg border-b-2 lg:prose-xl border-iiedorange-500">
+              
+                <div><p>Standfirst text</p>
+    </div>
+          
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="container min-h-screen mx-auto bg-gray-100 rounded-xl"></div>
+
+  </body>
+</html>

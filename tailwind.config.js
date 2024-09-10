@@ -74,12 +74,18 @@ module.exports = {
         },
         secondary: {
           "05AA76": "#05AA76"
+        },
+        iiedbg: {
+          "10": "#F9F8F6"
         }
 
       }, 
       content: {
         'video': 'url("/dist/images/video.svg")',
         'keypoint': 'url("/dist/images/keypoint.svg")',
+      },
+      minHeight: {
+        '112': '28rem',
       },
       typography: (theme) => ({
         DEFAULT: {

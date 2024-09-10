@@ -1,0 +1,45 @@
+
+
+<!-- Change to page.html.twig -->
+<div class="relative my-2"
+x-data="{
+  isAtStart: true,
+  isAtEnd: false,
+  scrollByPage(element, direction) {
+      const containerWidth = element.offsetWidth;
+      const maxScrollLeft = element.scrollWidth - containerWidth;
+      const currentScroll = element.scrollLeft;                
+      const targetScroll = direction === 'left' ? currentScroll - (containerWidth - 96) : currentScroll + (containerWidth - 96);
+      this.smoothScroll(element, targetScroll, 1000); // Duration is 1000ms
+  },
+  smoothScroll(element, endX, duration) {
+      let startX = element.scrollLeft,
+          change = endX - startX,
+          currentTime = 0,
+          increment = 20,
+          vm = this;
+
+      const animateScroll = function() {
+          currentTime += increment;
+          const val = easeInOutQuad(currentTime / duration);
+          element.scrollLeft = startX + (change * val);
+          vm.updateScrollState(element);
+
+          if(currentTime < duration) {
+              setTimeout(animateScroll, increment);
+          }
+      };
+      animateScroll();
+  },
+  updateScrollState(element) {
+      const threshold = 5; 
+      this.isAtStart = element.scrollLeft <= threshold;
+      const scrolledToEnd = element.scrollWidth - element.scrollLeft - element.clientWidth <= threshold;
+      this.isAtEnd = scrolledToEnd;
+  }
+  }" x-init="updateScrollState($refs.scrollContainer)" @scroll="updateScrollState($refs.scrollContainer)">
+  {{ page.secondary_menu }}
+
+  ...
+
+  

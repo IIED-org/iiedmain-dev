@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        }
+
+        function smoothScroll(element, endX, duration) {
+            let startX = element.scrollLeft,
+                change = endX - startX,
+                startTime = performance.now();
+
+            const animateScroll = function () {
+                let currentTime = performance.now() - startTime;
+                let val = easeInOutQuad(currentTime / duration);
+                element.scrollLeft = startX + (change * val);
+
+                if (currentTime < duration) {
+                    requestAnimationFrame(animateScroll);
+                }
+            };
+            animateScroll();
+        }
+
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('scroll', () => ({
+                scrollByPage(element, direction) {
+                    const containerWidth = element.offsetWidth;
+                    const currentScroll = element.scrollLeft;
+                    let targetScroll = 0;
+
+                    if (direction === 'left') {
+                        const firstFullyVisibleItem = Array.from(element.children).find(item => item.offsetLeft >= currentScroll);
+                        targetScroll = firstFullyVisibleItem ? firstFullyVisibleItem.offsetLeft - element.offsetWidth : 0;
+                    } else {
+                        const lastFullyVisibleItem = Array.from(element.children).reverse().find(item => item.offsetLeft + item.offsetWidth <= currentScroll + containerWidth);
+                        targetScroll = lastFullyVisibleItem ? lastFullyVisibleItem.offsetLeft + lastFullyVisibleItem.offsetWidth - containerWidth + element.offsetWidth / 2 : element.scrollWidth;
+                    }
+
+                    smoothScroll(element, targetScroll, 300); // Reduced duration for less inertia
+                }
+            }));
+        });
+    </script>
+</head>
+
+<body x-data="{scrolledFromTop: false}"
+    x-init="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false"
+    @scroll.window="window.pageYOffset >= 10 ? scrolledFromTop = true : scrolledFromTop = false" class="debug-screens">
+    <header>
+        <div class="px-4">
+            <div class="relative my-24"
+                x-data="{
+                isAtStart: true,
+                isAtEnd: false,
+                scrollByPage(element, direction) {
+                    const containerWidth = element.offsetWidth;
+                    const currentScroll = element.scrollLeft;
+                    let targetScroll = 0;
+
+                    if (direction === 'left') {
+                        const firstFullyVisibleItem = Array.from(element.children).find(item => item.offsetLeft >= currentScroll);
+                        targetScroll = firstFullyVisibleItem ? firstFullyVisibleItem.offsetLeft - element.offsetWidth : 0;
+                    } else {
+                        const lastFullyVisibleItem = Array.from(element.children).reverse().find(item => item.offsetLeft + item.offsetWidth <= currentScroll + containerWidth);
+                        targetScroll = lastFullyVisibleItem ? lastFullyVisibleItem.offsetLeft + lastFullyVisibleItem.offsetWidth - containerWidth + element.offsetWidth / 2 : element.scrollWidth;
+                    }
+
+                    this.smoothScroll(element, targetScroll, 300); // Reduced duration for less inertia
+                },
+                smoothScroll(element, endX, duration) {
+                    let startX = element.scrollLeft,
+                        change = endX - startX,
+                        startTime = performance.now(),
+                        vm = this;
+
+                    const animateScroll = function () {
+                        let currentTime = performance.now() - startTime;
+                        const val = easeInOutQuad(currentTime / duration);
+                        element.scrollLeft = startX + (change * val);
+                        vm.updateScrollState(element);
+
+                        if (currentTime < duration) {
+                            requestAnimationFrame(animateScroll);
+                        }
+                    };
+                    animateScroll();
+                },
+                updateScrollState(element) {
+                    const threshold = 5;
+                    this.isAtStart = element.scrollLeft <= threshold;
+                    const scrolledToEnd = element.scrollWidth - element.scrollLeft - element.clientWidth <= threshold;
+                    this.isAtEnd = scrolledToEnd;
+                }
+            }" x-init="updateScrollState($refs.scrollContainer)"
+                @scroll="updateScrollState($refs.scrollContainer)">
+
+                <ul x-ref="scrollContainer" @scroll="updateScrollState($refs.scrollContainer)"
+                    class="flex flex-row items-center justify-start space-x-4 overflow-x-scroll whitespace-no-wrap snap-x snap-mandatory no-scrollbar flex-nowrap">
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Urban</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Climate change</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Biodiversity</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Natural resource
+                            management</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Food and agriculture</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Sustainable markets</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Policy and planning</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Forests</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Governance</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Economics</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Poverty</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Monitoring, evaluation and
+                            learning</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Land acquisitions and
+                            rights</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Energy</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Law</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Gender</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Drylands and pastoralism</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Fisheries</a>
+                    </li>
+                    <li
+                        class="flex-shrink-0 transition-colors ease-out border border-gray-300 rounded-full hover:bg-gray-100">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:no-underline">Water</a>
+                    </li>
+                </ul>
+
+                <!-- Button to scroll left -->
+                <div x-show="!isAtStart"
+                    class="absolute top-0 left-0 flex justify-start w-20 h-full pointer-events-none bg-gradient-to-r from-white via-white to-transparent">
+                    <div class="pointer-events-auto">
+                        <button @click="scrollByPage($refs.scrollContainer, 'left')" x-show="!isAtStart"
+                            x-transition:opacity :aria-hidden="isAtStart.toString()"
+                            class="relative flex items-center justify-center w-10 h-10 transition-colors ease-out bg-transparent rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none"
+                            aria-label="Scroll left">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Button to scroll right -->
+                <div x-show="!isAtEnd"
+                    class="absolute top-0 right-0 flex justify-end w-20 h-full pointer-events-none bg-gradient-to-l from-white via-white to-transparent">
+                    <div class="pointer-events-auto">
+                        <button @click="scrollByPage($refs.scrollContainer, 'right')" x-show="!isAtEnd"
+                            x-transition:opacity :aria-hidden="isAtEnd.toString()"
+                            class="relative flex items-center justify-center w-10 h-10 transition-colors ease-out bg-transparent rounded-full cursor-pointer hover:bg-gray-100 focus:outline-none"
+                            aria-label="Scroll right">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container min-h-screen mx-auto bg-gray-100 rounded-xl"></div>
+</body>
+
+</html>
